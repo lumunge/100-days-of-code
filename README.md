@@ -2,9 +2,9 @@
 
 A roadmap to my software development goals
 
-## DAY 1
+##### DAY 1
 
-# Topics Covered:
+###### Topics Covered:
 
 -   Python language and applications
 -   Python basics
