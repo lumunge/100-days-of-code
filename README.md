@@ -1,6 +1,4 @@
-### 100-days-of-code
-
-A roadmap to my software development goals
+# 100 DAYS OF CODE
 
 ##### DAY 1
 
