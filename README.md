@@ -5,6 +5,14 @@ A repository to keep track of a roadmap to being a more knoweledgable developer
 # Why?
 
 ## MILESTONES
+- [] Python Programming language fundamentals `(day 1 -10)`
+- [] Data Structures and Algorithms in Python `(day 11 - 20)`
+- [] Solving Basic Programming Problems `(day 21 - 40)`
+- [] Solving Medium Level Programming Problems `(day 41 - 60)`
+- [] Solve Hard Level Programming Languages `(day 61 - 75)`
+- [] System Design `(day 76 - 85)`
+- [] Operating Systems & Database Management Systems `(day 86 - 92)`
+- [] Object Oriented Programming `(day 92 - 100)`
 
 ##### DAY(1-10) -- `PYTHON PROGRAMMING LANGUAGE FUNDAMENTALS`
 
@@ -14,8 +22,8 @@ A repository to keep track of a roadmap to being a more knoweledgable developer
 |                          |         |                                                                                                                                    |
 | <ul><li>- [x] </li></ul> | 30/6/21 |                Control Structures(loops, efficient, iterations, range, xrange, switch case --> dictionary mapping)                 |
 |                          |         |                                                                                                                                    |
-| <ul><li>- [] </li></ul>  | 1/7/21  |                                                Strings, Regex and Pattern Matching                                                 |
+| <ul><li>- [x] </li></ul> | 1/7/21  |                                                Strings, Regex and Pattern Matching                                                 |
 |                          |         |                                                                                                                                    |
-| []                       | 2/7/21  |                                                                                                                                    |
+| <ul><li>- [] </li></ul>  | 2/7/21  |                                                                                                                                    |
 |                          |         |                                                                                                                                    |
 |                          |         |                                                                                                                                    |
