@@ -8,7 +8,7 @@
 
 | Status | Dates   |            Topics Covered            |
 | ------ | ------- | :----------------------------------: |
-| [x]    | 29/6/21 | Python language and its applications |
+|- [x]   | 29/6/21 | Python language and its applications |
 |        |         | Python basics(iterations, loops and  |
 |        |         |   control statements switch case,    |
 |        |         |       operators, conitionals)        |
