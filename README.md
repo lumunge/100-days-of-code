@@ -8,7 +8,7 @@
 
 | Status                  | Dates   |            Topics Covered            |
 | ----------------------- | ------- | :----------------------------------: |
-| <ul><li>- [x] item1</li><li>-| 29/6/21 | Python language and its applications |
+| <ul><li>- [x]</li><li>- | 29/6/21 | Python language and its applications |
 |                         |         | Python basics(iterations, loops and  |
 |                         |         |   control statements switch case,    |
 |                         |         |       operators, conitionals)        |
