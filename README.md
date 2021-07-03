@@ -12,7 +12,7 @@ A repository to keep track of a roadmap to being a more knoweledgable developer
 - [ ] Solve Hard Level Programming Languages `(day 61 - 75)`
 - [ ] System Design `(day 76 - 85)`
 - [ ] Operating Systems & Database Management Systems `(day 86 - 92)`
-- [ ] Object Oriented Programming `(day 92 - 100)`
+- [ ] Object Oriented Design `(day 92 - 100)`
 
 ##### DAY(1-10) -- `PYTHON PROGRAMMING LANGUAGE FUNDAMENTALS`
 
@@ -24,6 +24,19 @@ A repository to keep track of a roadmap to being a more knoweledgable developer
 |                          |         |                                                                                                                                    |
 | <ul><li>- [x] </li></ul> | 1/7/21  |                                                Strings, Regex and Pattern Matching                                                 |
 |                          |         |                                                                                                                                    |
-| <ul><li>- [] </li></ul>  | 2/7/21  |                                                                                                                                    |
+| <ul><li>- [x] </li></ul> | 2/7/21  | Classes, methods, Functions                                                                                                        |
+|                          |         |                                                                                                                                    |
+| <ul><li>- [x] </li></ul> | 3/7/21  | OOP, inheritance, constructors, methods, class and static methods and variables, Garbage Collection, lambda functions              |
+|                          |         |                                                                                                                                    |
+| <ul><li>- [ ] </li></ul> | 4/7/21  |                                                                                                                                    |
 |                          |         |                                                                                                                                    |
 |                          |         |                                                                                                                                    |
+|                          |         |                                                                                                                                    |
+|                          |         |                                                                                                                                    |
+|                          |         |                                                                                                                                    |
+|                          |         |                                                                                                                                    |
+|                          |         |                                                                                                                                    |
+|                          |         |                                                                                                                                    |
+|                          |         |                                                                                                                                    |
+|
+|
