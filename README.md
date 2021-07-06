@@ -16,8 +16,8 @@ A a roadmap to being a more knoweledgable developer.
 
 ##### DAY(1-10) -- `PYTHON PROGRAMMING LANGUAGE FUNDAMENTALS`
 
-| Status                   | Dates   |                                                           Topics Covered                                                           |
-| ------------------------ | ------- | :--------------------------------------------------------------------------------------------------------------------------------: |
+| Status                   | Dates   |                                                           Topics Covered                                                           |  Resources
+| ------------------------ | ------- | :--------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------: |
 | <ul><li>- [x] </li></ul> | 29/6/21 | Python language and its applications, Python basics(iterations, loops and control statements switch case, operators, conditionals) |
 |                          |         |                                                                                                                                    |
 | <ul><li>- [x] </li></ul> | 30/6/21 |                Control Structures(loops, efficient iterations range, xrange, switch case --> dictionary mapping)                   |
@@ -32,11 +32,11 @@ A a roadmap to being a more knoweledgable developer.
 |                          |         |                                                                                                                                    |
 | <ul><li>- [x] </li></ul> | 5/7/21  | Queues, Deques, Stacks tuples                                                                                                      |
 |                          |         |                                                                                                                                    |
-| <ul><li>- [ ] </li></ul> | 6/7/21  |                                                                                                                                    |
+| <ul><li>- [x] </li></ul> | 6/7/21  | File Handling                                                                                                                      |
 |                          |         |                                                                                                                                    |
+| <ul><li>- [ ] </li></ul> | 7/7/21  |                                                                                                                                    |
 |                          |         |                                                                                                                                    |
+| <ul><li>- [ ] </li></ul> | 8/7/21  |                                                                                                                                    |
 |                          |         |                                                                                                                                    |
-|                          |         |                                                                                                                                    |
-|                          |         |                                                                                                                                    |
-|
+| <ul><li>- [ ] </li></ul> | 9/7/21  |                                                                                                                                    |
 |
