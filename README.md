@@ -36,7 +36,7 @@ A a roadmap to being a more knoweledgable developer.
 |                          |                                                                                                                                    |
 | <ul><li>- [x] </li></ul> | Exception Handling                                                                                                                 |
 |                          |                                                                                                                                    |
-| <ul><li>- [ ] </li></ul> |                                                                                                                                    |
+| <ul><li>- [ ] </li></ul> | Mathematical Thinking, (Making, convincing arguments, How to find an Example)                                                      |
 |                          |                                                                                                                                    |
-| <ul><li>- [ ] </li></ul> |                                                                                                                                    |
+| <ul><li>- [ ] </li></ul> | Mathematical Thinking (Recursion, Induction)                                                                                       |
 |
