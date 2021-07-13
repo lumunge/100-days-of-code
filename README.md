@@ -1,11 +1,11 @@
 # 100 DAYS OF CODE
 
-A a roadmap to being a more knoweledgable developer.
+A roadmap to being a more knoweledgable developer.
 
 # Why?
 
 ## MILESTONES
-- [ ] `Python Programming language fundamentals`
+- [x] `Python Programming language fundamentals`
 - [ ] `Data Structures and Algorithms in Python`
 - [ ] `Solving Basic Programming Problems`
 - [ ] `Solving Medium Level Programming Problems`
