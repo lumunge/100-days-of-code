@@ -14,7 +14,6 @@ A roadmap to being a more knoweledgable developer.
 - [ ] `Operating Systems & Database Management Systems`
 - [ ] `Object Oriented Design`
 
-##### 1 `PYTHON PROGRAMMING LANGUAGE FUNDAMENTALS`
 
 | Status                   |                                                           Topics Covered                                                           |  Resources
 | ------------------------ | :--------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------: |
