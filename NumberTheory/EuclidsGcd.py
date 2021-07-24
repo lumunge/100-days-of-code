@@ -51,7 +51,7 @@ def gcd(a, b):
 
   return max(a, b)
 
-
+print(gcd(10, 6))
 print(gcd(24, 16))
 print(gcd(790933790547, 1849639579327))
 print(gcd(790933790548, 2))
