@@ -1,5 +1,6 @@
 """
 Returns gcd of a and b d = gcd(a, b) and two numbers x and y such that d = ax + by
+(x, y) ==> Certificates
 """
 
 def extended_gcd(a, b):
@@ -15,10 +16,3 @@ def extended_gcd(a, b):
   assert a % d == 0 and b % d == 0
   assert d == a * x + b * y
   return (d, x, y)
-
-print(extended_gcd(10,6))
-print(extended_gcd(7,5))
-print(extended_gcd(391,299))
-print(extended_gcd(239,201))
-
-

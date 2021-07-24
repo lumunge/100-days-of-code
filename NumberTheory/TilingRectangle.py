@@ -22,7 +22,3 @@ def squares(n, m):
         n = n // g
         m = m // g
         return n * m
-
-print(squares(10, 6))
-print(squares(7, 5))
-print(squares(24, 16))
