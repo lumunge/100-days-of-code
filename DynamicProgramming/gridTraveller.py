@@ -15,7 +15,9 @@ def gridTraveller(m, n, memo={}):
     memo[key] = gridTraveller(m-1, n, memo) + gridTraveller(m, n-1, memo)
     return memo[key]
 
+#test cases
 T = int(input())
+
 for i in range(T):
     m, n = map(int, input().split())
     print(gridTraveller(m, n))
