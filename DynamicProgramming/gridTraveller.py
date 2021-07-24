@@ -1,5 +1,10 @@
 """
-BRUTE FORCE SOLN
+PROBLEM STATEMENT:
+Count all the possible paths from top left to bottom right of a mXn matrix
+Constraints:
+    1: from a cell move right or down
+
+#BRUTE FORCE SOLN
 def gridTraveller(m, n):
     if m == 1 and n == 1: return 1
     if m == 0 or n == 0: return 0
