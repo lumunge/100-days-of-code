@@ -15,7 +15,8 @@ def gcd(a, b):
 
 print(gcd(0, 1))
 print(gcd(24, 16))
-# The following call would take too long
+
+# Takes longer for larger numbers
 #print(gcd(790933790547, 1849639579327))
 
 #EUCLIDS AGORITHM
@@ -34,7 +35,8 @@ def gcd(a, b):
 
 print(gcd(24, 16))
 print(gcd(790933790547, 1849639579327))
-# The following call would take too long
+
+# Better but takes longer for such numbers
 #print(gcd(790933790548, 2)) 
 """
 

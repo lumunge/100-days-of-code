@@ -1,5 +1,5 @@
 """
-Returns gcd of a and b d=gcd(a,b) and two numbers x and y such that d = ax + by
+Returns gcd of a and b d = gcd(a, b) and two numbers x and y such that d = ax + by
 """
 
 def extended_gcd(a, b):
