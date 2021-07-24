@@ -1,6 +1,6 @@
 """
 Returns gcd of a and b d = gcd(a, b) and two numbers x and y such that d = ax + by
-(x, y) ==> Certificates
+(x, y) ==> Certificate that d is the largest common divisor of (a and b)
 """
 
 def extended_gcd(a, b):
