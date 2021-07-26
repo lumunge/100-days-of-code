@@ -32,15 +32,14 @@ def ChineseRemainderTheorem(n1, r1, n2, r2):
     (z, c, d) = ExtendedEuclid(n1, n2)
     
     ax, by = n1*c, n2*d
-    
+    #pairs = ((ax%n1), (ax%n2), (by%n1), (by%n2))
+
     n = r1*by + r2*ax 
     m = n1*n2
+    
+    return n%m
 
-    x = n%m
-    y = m%m 
-    return x + y 
-
-print(ChineseRemainderTheorem(686579304, 295310485, 26855093, 8217207))
+#print(ChineseRemainderTheorem(686579304, 295310485, 26855093, 8217207))
 
 
 
