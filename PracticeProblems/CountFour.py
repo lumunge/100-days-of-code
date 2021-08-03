@@ -12,9 +12,10 @@ def getFour(n):
             count += 1
     return count
 
-#test cases 
-T = int(input())
-for i in range(T):
-    n = int(input())
-    print(getFour(n))
+if __name__ == "__main__":
+    #test cases 
+    T = int(input())
+    for i in range(T):
+        n = int(input())
+        print(getFour(n))
 
