@@ -18,7 +18,13 @@ def count_wins(dice1, dice2):
 
     return (dice1_wins, dice2_wins)
 
-print(count_wins([1, 1, 6, 6, 8, 8], [2, 2, 4, 4, 9, 9]))
-print(count_wins([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6]))
+if __name__ == "__main__":
+    firstDie = list(map(int, input().split()))[:6]
+    secondDie = list(map(int, input().split()))[:6]
+    print(count_wins(firstDie, secondDie))
 
-
+"""
+Tests
+count_wins([1, 1, 6, 6, 8, 8], [2, 2, 4, 4, 9, 9]) => (16, 20)
+count_wins([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6]) => (15, 15)
+"""
