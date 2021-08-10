@@ -6,7 +6,7 @@ A roadmap to being a more knoweledgable developer.
 
 ## MILESTONES
 - [x] `Python Programming language fundamentals`
-- [x] `Data Structures and Algorithms in Python`
+- [x] `Data Structures and Algorithms`
 - [ ] `Solving Basic Programming Problems`
 - [ ] `Solving Medium Level Programming Problems`
 - [ ] `Solve Hard Level Programming Languages`
