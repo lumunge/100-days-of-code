@@ -1,6 +1,7 @@
+"""Least amount of coins
+    change in terms of 1, 5, and 10 coins"""
 
 def get_change(m):
-    #write your code here
     coins = 0
     while m > 0:
         if(m >= 1 and m < 5):
