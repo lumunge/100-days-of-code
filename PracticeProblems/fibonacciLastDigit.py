@@ -1,3 +1,10 @@
+"""
+Given an integer n, find last digit of sum f1 + f2 + ... + fn
+
+sample: 3 -> 4
+    f0 + f1 + f2 + f3 + f4 = 0 + 1 + 1 + 2 = 4
+"""
+
 def fib(n):
     nums = [0, 1]
     if(n == 0):
@@ -9,7 +16,7 @@ def fib(n):
     
     return sum(nums) % 10
 
-if(__name__ == '__main__'):
+if __name__ == '__main__':
     n = int(input())
     print(fib(n))
 

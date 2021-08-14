@@ -1,3 +1,11 @@
+"""
+PROBLEM STATEMENT
+Given two integers a and b, find their greatest common divisor
+
+Sample
+28851538 1183019 --> 17657
+"""
+
 def gcd(a, b):
     if(a == 0):
         return b
@@ -10,6 +18,6 @@ def gcd(a, b):
             b = b % a
     return max(a, b)
 
-if(__name__ == "__main__"):
+if __name__ == "__main__":
     a, b = map(int, input().split())
     print(gcd(a, b))
