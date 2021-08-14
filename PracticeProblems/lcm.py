@@ -1,3 +1,11 @@
+"""
+PROBLEM STATEMENT
+Given two integers a and b, find their least common multiple
+
+Sample
+761457 614573 --> 467970912861
+"""
+
 def gcd(a, b):
   assert a >= 0 and b >= 0 and a + b > 0
 
@@ -13,7 +21,7 @@ def lcm(a, b):
     assert a > 0 and b > 0
     return a*b // gcd(a, b)
 
-if(__name__ == '__main__'):
+if __name__ == '__main__':
     a, b = map(int, input().split())
     print(lcm(a, b))
 
