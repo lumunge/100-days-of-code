@@ -42,6 +42,6 @@ int main(){
     int n, m;
     cin >> n >> m;
     int res = fibModuloPisano(n, m);
-    cout << res;
+    cout << res << endl;
     return 0;
 }
