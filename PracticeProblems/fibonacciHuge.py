@@ -1,3 +1,8 @@
+"""
+PROBLEM STATEMENT
+Compute Fn modulo m, m upto 10^14
+"""
+
 def pisanoPeriod(m):
     #Get pissano period
     #Length of pissano period for a given m from 3 to m*m
