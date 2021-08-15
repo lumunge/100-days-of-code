@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-long long int fib(int n){
+long long fib(int n){
     vector<long long int> fibNumbers;
     fibNumbers.push_back(0);
     fibNumbers.push_back(1);
@@ -18,7 +18,7 @@ long long int fib(int n){
 int main(){
     int n;
     cin >> n;
-    long long int result = fib(n);
+    long long result = fib(n);
     cout << result << endl;
     return 0;
 }
