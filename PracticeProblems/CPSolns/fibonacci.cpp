@@ -2,8 +2,8 @@
 #include <vector>
 using namespace std;
 
-unsigned long long int fib(int n){
-    vector<unsigned long long int> fibNumbers;
+long long int fib(int n){
+    vector<long long int> fibNumbers;
     fibNumbers.push_back(0);
     fibNumbers.push_back(1);
     if(n == 0)
@@ -18,7 +18,7 @@ unsigned long long int fib(int n){
 int main(){
     int n;
     cin >> n;
-    unsigned long long int result = fib(n);
+    long long int result = fib(n);
     cout << result << endl;
     return 0;
 }
