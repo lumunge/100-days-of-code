@@ -1,4 +1,5 @@
 #include<iostream>
+#include<map>
 using namespace std;
 
 /* 
@@ -12,14 +13,22 @@ long long factorial(int n){
 }
 */
 
-//RECURSIVE ALGORITHM
+//RECURSIVE ALGORITHM WITH MEMOIZATION
 
 long long factorial(int n){
+    map<int, int> memo;
+    map<int, int>::iterator it;
     //base case
     if(n == 0){
         return 1;
     }
-    return n * factorial(n-1);
+    memo[n] = n * factorial(n-1);
+    it = memo.lower_bound(n);
+    if(it == memo.end()){
+        return 0;
+    }else{
+        return it->second;
+    }
 }
 
 int main(){
