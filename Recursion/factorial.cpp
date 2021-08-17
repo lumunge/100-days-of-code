@@ -24,11 +24,7 @@ long long factorial(int n){
     }
     memo[n] = n * factorial(n-1);
     it = memo.lower_bound(n);
-    if(it == memo.end()){
-        return 0;
-    }else{
-        return it->second;
-    }
+    return it-> second;
 }
 
 int main(){
