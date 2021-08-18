@@ -8,7 +8,7 @@ int MinRefills(vector<int> arr, int n, int l){
     while(currentRefill <= n){
         int lastRefill = currentRefill;
         while(currentRefill <= n && (arr[currentRefill + 1] - arr[lastRefill]) <= l){
-            currentRefill = currentRefill + 1;
+            currentRefill += 1;
         }
         if(currentRefill == lastRefill){
             return -1;
@@ -21,16 +21,16 @@ int MinRefills(vector<int> arr, int n, int l){
 }
 
 int main(){
-    int m;
+    int l;
     int n;
+    int x;
     vector<int> arr;
-    cin >> m;
+    cin >> l;
     cin >> n;
     for(int i = 0; i < n; i++){
-        int x;
         cin >> x;
         arr.push_back(x);
     }
-    cout << MinRefills(arr, n, m);
+    cout << MinRefills(arr, n, l);
     return 0;
 }
