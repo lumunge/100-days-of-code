@@ -15,9 +15,3 @@ for i in lst:
     newList.append(str(i))
 print(len(lst))
 print(" ".join(newList))
-
-
-
-
-
-
