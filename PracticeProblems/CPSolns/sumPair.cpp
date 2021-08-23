@@ -12,19 +12,18 @@ void printArr(vector<pair<int, int>> arr){
 vector<pair<int, int>> sumPair(vector<int> arr, int target){
     vector<pair<int, int>> result;
     for(int i = 0; i < arr.size(); i++){
-        for(int j = 1; j < arr.size(); j++){
-            if(i != j && arr[i] + arr[j] == target){
+        for(int j = i+1; j < arr.size(); j++){
+            if(arr[i] + arr[j] == target){
                 result.push_back(make_pair(arr[i], arr[j]));
-            }else{
-                cout << "Not found";
+            }
         }
     }
-    printArr(result);
     return result;
 }
 
 int main(){
     vector<int> arr;
+    vector<pair<int, int>> result;
     int n;
     int target;
     int x;
@@ -34,6 +33,11 @@ int main(){
         arr.push_back(x);
     }
     cout << "Target: ", cin >> target;
-    sumPair(arr, target);
+    result = sumPair(arr, target);
+    if(result.size() > 0){
+        printArr(result);
+    }else{
+        cout << "Not Found!" << endl;
+    }
     return 0;
 }
