@@ -2,6 +2,11 @@
 #include<vector>
 using namespace std;
 
+/*
+ * PROBLEM STATEMENT:
+ * Given an unsorted interger array, find a pair with given sum in it.
+ */
+
 void printArr(vector<pair<int, int>> arr){
     for(int i = 0; i < arr.size(); i++){
         cout << arr[i].first << " " << arr[i].second << endl;
