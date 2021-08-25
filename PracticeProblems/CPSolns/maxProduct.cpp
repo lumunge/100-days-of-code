@@ -1,7 +1,6 @@
 #include<iostream>
 #include<vector>
-#include<time.h>
-#include<limits.h>
+#include<algorithm>
 using namespace std;
 
 //soln 1
@@ -39,8 +38,22 @@ class Sort{
         }
 };
 
+class MaxProduct{
+    public:
+        vector<int> arr;
+        void getMax(vector<int> arr){
+            int n = arr.size();
+            if(arr[0] * arr[1] > arr[n-1] * arr[n-2]){
+                cout << arr[0] << " " << arr[1] << endl;
+            }else{
+                cout << arr[n-1] << " " << arr[n-2] << endl;
+            }
+        }
+};
+
 int main(){
-    Sort obj;
+    Sort sort;
+    MaxProduct max;
     vector<int> arr;
     int n;
     int x;
@@ -49,8 +62,7 @@ int main(){
         cin >> x;
         arr.push_back(x);
     }
-    obj.quickSort(arr, 0, n-1);
-    obj.printArr(arr);
-    //cout << maxProduct(arr);
+    sort.quickSort(arr, 0, n-1);
+    max.getMax(arr);
     return 0;
 }
