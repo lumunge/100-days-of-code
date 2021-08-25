@@ -36,11 +36,36 @@ void sortArr(int arr[], int n){
 }
 */
 
+void swap(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int partition(int arr[], int l, int r){
+    int x = arr[l];
+    int j = l;
+    for(int i = l+1; i <= r; i++){
+        if(x < arr[i] <= x){
+            j++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[j], &arr[l]);
+    return j;
+}
+void sortArr(int arr[], int l, int r){
+    if(l < r){
+        //partitioning index
+        int pi = partition(arr, l, r);
+        sortArr(arr, l, pi-1);
+        sortArr(arr, pi+1, r);
+    }
+}
 
 int main(){
     int arr[] = {1, 0, 1, 0, 1, 0, 0, 1};
     int n = sizeof(arr) / sizeof(arr[0]);
-    sortArr(arr, n-1);
+    sortArr(arr, 0, n-1);
     printArr(arr, n);
     return 0;
 }
