@@ -13,29 +13,9 @@ void printArr(int arr[], int n){
     }
     cout << endl;
 }
-
-/* Count number of  zeros and fill part of the array with zero count
- * fill rest of array with ones
- *
-void sortArr(int arr[], int n){
-    int count = 0;
-    for(int i = 0; i < n; i++){
-        if(arr[i] == 0){
-            count++;
-        }
-    }
-    int k = 0;
-    while(k < count){
-        arr[k] = 0;
-        k++;
-    }
-    while(count < n){
-        arr[count+1] = 1;
-        count++;
-    }
-}
-*/
-
+/*
+ * Using quicksort
+ 
 void swap(int *a, int *b){
     int temp = *a;
     *a = *b;
@@ -59,6 +39,29 @@ void sortArr(int arr[], int l, int r){
         int pi = partition(arr, l, r);
         sortArr(arr, l, pi-1);
         sortArr(arr, pi+1, r);
+    }
+}
+
+*/
+
+/* Count number of  zeros and fill part of the array with zero count
+ * fill rest of array with ones
+ */
+void sortArr(int arr[], int n){
+    int count = 0;
+    for(int i = 0; i < n; i++){
+        if(arr[i] == 0){
+            count++;
+        }
+    }
+    int k = 0;
+    while(k < count){
+        arr[k] = 0;
+        k++;
+    }
+    while(count < n){
+        arr[count+1] = 1;
+        count++;
     }
 }
 
