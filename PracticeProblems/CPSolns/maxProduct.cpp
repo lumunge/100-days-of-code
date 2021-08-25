@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<time.h>
 #include<limits.h>
 using namespace std;
 
@@ -12,27 +13,35 @@ void swap(int *a, int *b){
     *a = *b;
     *b = temp;
 }
-void printArr(int arr[], int n){
-    for(int i = 0; i < n; i++){
+void printArr(vector<int> arr){
+    for(int i = 0; i < arr.size(); i++){
         cout << arr[i] << " ";
     }
     cout << endl;
 }
-int partition(int arr[], int l, int r){
+int partition(vector<int> arr, int l, int r){
     int x = arr[l];
     int j = l;
     for(int i = l+1; i <= r; i++){
-        if(arr[i] < arr[x]){
+        if(arr[i] <= x){
             j++;
-            swap(&arr[x], &arr[j])
+            swap(&arr[j], &arr[i]);
         }
     }
     swap(&arr[j], &arr[l]);
     return j;
 }
-void quickSort(int arr[], int l, int r){
+void quickSort(vector<int> arr, int l, int r){
     if(l < r){
-        k = 
+        srand(time(NULL));
+        int k = l + rand() % (r-1);
+        swap(&arr[l], &arr[k]);
+        cout << k << endl;
+        int pi = partition(arr, l, r);
+        quickSort(arr, l, pi-1);
+        quickSort(arr, pi+1, r);
+    }
+}
 
 int main(){
     vector<int> arr;
@@ -43,6 +52,8 @@ int main(){
         cin >> x;
         arr.push_back(x);
     }
-    cout << maxProduct(arr);
+    printArr(arr);
+    //quickSort(arr, 0, n-1);
+    //cout << maxProduct(arr);
     return 0;
 }

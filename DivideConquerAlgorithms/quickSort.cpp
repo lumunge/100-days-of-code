@@ -45,7 +45,6 @@ void quickSort(int arr[], int l, int r){
     if(l < r){
         srand(time(NULL));
         int k = l + rand() % (r-l);
-        cout << k << endl;
         swap(&arr[l], &arr[k]);
         int pi = partition(arr, l, r);
         quickSort(arr, l, pi-1);
