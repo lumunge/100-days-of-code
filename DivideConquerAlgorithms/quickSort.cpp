@@ -19,6 +19,7 @@ void printArr(int arr[], int n){
 int partition(int arr[], int l, int r){
     int x = arr[l];
     int j = l;
+    int k = r;
     for(int i = l+1; i <= r; i++){
         if(arr[i] <= x){
             j++;
@@ -26,6 +27,7 @@ int partition(int arr[], int l, int r){
         }
     }
     swap(&arr[j], &arr[l]);
+    cout << "j " << j << endl;
     return j;
 }
 /*
@@ -52,7 +54,7 @@ void quickSort(int arr[], int l, int r){
     }
 }
 int main(){
-    int arr[] = {2, 5, 7, 1, 5, 0, 7};
+    int arr[] = {2, 5, 7, 1, 5, 0, 7, 0, 9, 2, 1};
     int n = sizeof(arr) / sizeof(arr[0]);
     quickSort(arr, 0, n-1);
     printArr(arr, n);
