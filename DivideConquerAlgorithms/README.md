@@ -44,3 +44,16 @@ QuickSort(arr, l, r);
                q++;
         swap(arr[r], arr[q]);
         return q;
+
+### Analysis
+    1: O(n2) Worst case -> When the pivot does not balace the array
+        -> Could be the largest or it could be the smallest, therefore on part
+            will have no elements while the other will have n-1 elements.
+    2: O(nlogn) Best case -> When the pivot element balances the array, meaning equal 
+            elements less than pivot and equal elements greater than pivot.
+    3: O(nlogn) Average case -> when pivot lies between two unbalanced array ie between 1/4 
+            and 3/4 of the array.
+    
+    Randomized quicksort    -> Choose a random pivot element
+                            -> Choose three and select the median element
+                            -> Choose 5 and select median element and so on to improve algorithm
