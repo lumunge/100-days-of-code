@@ -49,11 +49,10 @@ class MaxProduct{
                 cout << arr[n-1] << " " << arr[n-2] << endl;
             }
         }
-
         //Soln 2
         //Get maximum 1 and maximum2, minimum1 and minimum2
         //Return the greater of the two       
-        int compareGetMax(vector<int> arr){
+        void compareGetMax(vector<int> arr){
             int n = arr.size();
             int max1 = arr[0];
             int max2 = INT_MIN; //-2m
@@ -80,9 +79,9 @@ class MaxProduct{
             }
             //Comparison
             if(max1*max2 > min1 * min2){
-                return max1, max2;
+                cout << max1 << " " << max2 << endl;
             }else{
-                return min1, min2;
+                cout << min1 << " " << min2 << endl;
             }
         }
 };
@@ -100,7 +99,6 @@ int main(){
         arr.push_back(x);
     }
     sort.quickSort(arr, 0, n-1);
-    int a, b = max.compareGetMax(arr);
-    cout << a << " " << b << endl;
+    max.compareGetMax(arr);
     return 0;
 }
