@@ -57,3 +57,29 @@ QuickSort(arr, l, r);
     Randomized quicksort    -> Choose a random pivot element
                             -> Choose three and select the median element
                             -> Choose 5 and select median element and so on to improve algorithm
+    3-Way Partitioning procedure: Deals with equal elements in an array, escapes their comparision 
+                                  and therefore improves running time on an array with equal elements.
+    
+    3Way(arr, l, r):
+        mid = l;
+        pivot = arr[r];
+        while(mid < r){
+            if(arr[mid] < pivot):
+                swap(arr[l], arr[mid])
+                l++;
+                mid++
+            else if(arr[mid] == pivot)
+                mid++;
+            else:
+                swap(arr[mid], arr[r])
+                r--
+        m1 = l - 1;
+        m2 = mid;
+
+    quickSort(arr, l, r):
+        m1, m2 = 3Way(arr, l, r);
+        quickSort(arr, l, m1)
+        quickSort(arr, m2, r)
+
+
+
