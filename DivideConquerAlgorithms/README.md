@@ -81,5 +81,51 @@ QuickSort(arr, l, r);
         quickSort(arr, l, m1)
         quickSort(arr, m2, r)
 
+# Merge Sort
+    Take an array of elements and divide it up down to single elements and start merging while comparing 
+    elements.
 
+    Merge Procedure:
+    1: take an array [12, 11, 13, 5, 6, 7]
+    2: merge(arr, l, r, mid)
+    3: l = 0; r = 6; mid = 3;
+    4: create array duplicates copies of arrays to be sorted
+    5: m1 = mid - l + 1 = 3 + 0 + 1 == 4;
+    6: m2 = r - mid = 5 - 3 = 2
+    7: arr1[0, 1, 2, 3, 4](< m1) --> [12, 11, 13, 5], arr2[5, 6](< m2) --> [6, 7];
+    8: Maintain indices 
+                        For first array  i = 0;
+                        For Second array j = 0;
+                        For final array  k = p;
+    9: Until we reach end of arr1, or arr2, pick larger element and place at correct position
+        While(i < m1 && j < m2):
+            if(arr1[i] <= arr2[j]) 
+                arr[k] = arr1[i]; 
+                i++;             
+            else:
+                arr[k] = arr2[j];
+                j++;            
+        end while;
+    10: When elements run out in either of arrays fill the ramaining elements to the ramaining positions
+        While(i < m1):
+            arr[k] = arr1[i];
+            i++;
+            k++;
 
+        While(j < m2):
+            arr[k] = arr1[j];
+            j++;
+            k++;
+    
+    Mergesort(arr, l, r, mid):                                     
+        if l < r 1; return arr;                                 
+        mid = n/2;                                          
+        mergeSort(arr, l, mid);                           
+        mergeSort(arr, mid+1, r);                    
+                                                    
+        merge(arr, l, r, mid);   
+
+    T(n/2) -- > to calls to merge sort on two halves of array
+    n --> Merge procedure
+    T(n) = 2T(n/2) + n
+    Time Complexity: O(nlogn) -> worst case
