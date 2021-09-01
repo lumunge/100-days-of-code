@@ -1,8 +1,15 @@
 # 100 DAYS OF CODE
 
-A roadmap to being a more knoweledgable developer.
+A repository to keep track of my roadmap to being a more knowledgeable developer
 
 # Why?
+
+I felt lost, without clear direction on where I wanted my career to go. I want to be the best developer I can be, which means I need a roadmap to give me more
+structure and a clear picture on where I will be as a developer within the next five years hence my goal is to use this roadmap to guide my learning.
+
+# My inspiration can from this guides:
+
+[https://www.geeksforgeeks.org/100-days-of-code-a-complete-guide-for-beginners-and-experienced/]
 
 ## MILESTONES
 - [x] `Python Programming language fundamentals`
