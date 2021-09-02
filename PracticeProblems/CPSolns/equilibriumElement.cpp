@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+/*
 int addElements(int arr[], int n){
     int total = 0;
     for(int i = 0; i < n; i++){
@@ -24,11 +24,37 @@ void equilibrium(int arr[], int n, int x){
             cout << i << endl;
         }
     }
+}*/
+
+void equilibrium(int arr[], int n){
+    int left[n];
+    left[0] = 0;
+    for(int i = 1; i < n; i++){
+        left[i] = left[i-1] + arr[i - 1];
+    }
+    int right = 0;
+    for(int i = n-1; i >= 0; i--){
+        if(left[i] == right){
+            cout << i << " ";
+        }
+        right += arr[i];
+    }
 }
+    
+
 int main(){
     int arr[] = {0, -3, 5, -4, -2, 3, 1, 0};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int x;
-    equilibrium(arr, n, x);
+    equilibrium(arr, n);
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
