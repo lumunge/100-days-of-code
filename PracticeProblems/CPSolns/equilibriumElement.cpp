@@ -1,6 +1,16 @@
 #include<iostream>
 using namespace std;
 /*
+ * PROBLEM STATEMENT:
+ * Find the equilibrium element
+ * Equilibrium element --> An element whose sum of its left elements is equal to sum of its
+ * right elemets.
+ * Sample: {0, -3, 5, -4, -2, 3, 1, 0} == -4
+ *          0 + -3 + 5 == -2 + 3 + 2
+ */
+
+/*
+ * Solution 1:
 int addElements(int arr[], int n){
     int total = 0;
     for(int i = 0; i < n; i++){
@@ -48,13 +58,3 @@ int main(){
     equilibrium(arr, n);
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
