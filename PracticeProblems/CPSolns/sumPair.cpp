@@ -6,27 +6,30 @@ using namespace std;
  * PROBLEM STATEMENT:
  * Given an unsorted interger array, find a pair with given sum in it.
  */
-
-void printArr(vector<int> arr){
-    for(int i = 0; i < arr.size(); i++){
-        cout << arr[i] << " ";
+class Solution{
+public:
+    void printArr(vector<int> arr){
+        for(int i = 0; i < arr.size(); i++){
+            cout << arr[i] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-}
 
-vector<int> twoSum(vector<int>& nums, int target) {
-    vector<int> result;
-    for(int i = 0; i < nums.size(); i++){
-        for(int j = i+1; j < nums.size(); j++){
-            if(nums[i] + nums[j] == target){
-                result = {i, j};
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> result;
+        for(int i = 0; i < nums.size(); i++){
+            for(int j = i+1; j < nums.size(); j++){
+                if(nums[i] + nums[j] == target){
+                    result = {i, j};
+                }
             }
         }
+        return result;
     }
-    return result;
-}
+};
 
 int main(){
+    Solution soln;
     vector<int> arr;
     vector<int> result;
     int n;
@@ -38,9 +41,9 @@ int main(){
         arr.push_back(x);
     }
     cout << "Target: ", cin >> target;
-    result = twoSum(arr, target);
+    result = soln.twoSum(arr, target);
     if(result.size() > 0){
-        printArr(result);
+        soln.printArr(result);
     }else{
         cout << "Not Found!" << endl;
     }
