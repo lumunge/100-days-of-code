@@ -7,19 +7,19 @@ using namespace std;
  * Given an unsorted interger array, find a pair with given sum in it.
  */
 
-void printArr(vector<pair<int, int>> arr){
+void printArr(vector<int> arr){
     for(int i = 0; i < arr.size(); i++){
-        cout << arr[i].first << " " << arr[i].second << endl;
+        cout << arr[i] << " ";
     }
     cout << endl;
 }
 
-vector<pair<int, int>> sumPair(vector<int> arr, int target){
-    vector<pair<int, int>> result;
-    for(int i = 0; i < arr.size(); i++){
-        for(int j = i+1; j < arr.size(); j++){
-            if(arr[i] + arr[j] == target){
-                result.push_back(make_pair(arr[i], arr[j]));
+vector<int> twoSum(vector<int>& nums, int target) {
+    vector<int> result;
+    for(int i = 0; i < nums.size(); i++){
+        for(int j = i+1; j < nums.size(); j++){
+            if(nums[i] + nums[j] == target){
+                result = {i, j};
             }
         }
     }
@@ -28,7 +28,7 @@ vector<pair<int, int>> sumPair(vector<int> arr, int target){
 
 int main(){
     vector<int> arr;
-    vector<pair<int, int>> result;
+    vector<int> result;
     int n;
     int target;
     int x;
@@ -38,7 +38,7 @@ int main(){
         arr.push_back(x);
     }
     cout << "Target: ", cin >> target;
-    result = sumPair(arr, target);
+    result = twoSum(arr, target);
     if(result.size() > 0){
         printArr(result);
     }else{
