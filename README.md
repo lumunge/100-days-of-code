@@ -52,9 +52,9 @@ structure and a clear picture on where I will be as a developer within the next 
 |                          |                                                                                                                                    |                                                                          |
 | <ul><li>- [x] </li></ul> | Delivery Problem (graph theory implementation)                                                                                     |                                                                          |
 |                          |                                                                                                                                    |                                                                          |
+| <ul><li>- [x] </li></ul> | Computational Complexity                                                                                                           | https://www.topcoder.com/thrive/articles/Computational%20                |
+|                          |                                                                                                                                    | Complexity%20part%20one                                                  |
 | <ul><li>- [ ] </li></ul> |                                                                                                                                    |                                                                          |
-|                          |                                                                                                                                    |                                                                          |
-|                          |                                                                                                                                    |                                                                          |
 |                          |                                                                                                                                    |                                                                          |
 
 
