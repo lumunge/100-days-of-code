@@ -9,6 +9,13 @@ using namespace std;
  *                      arr[j] > k && j >= 0;
  * Place key in its right position:
  *                                 arr[j+1] = k;
+ *  
+ *  Sample: 9, 5, 1, 2, 4, 6
+ *  1st Iteration: i = 1, j = 0 --> 5, 9, 1, 2, 4, 6
+ *                 i = 2, j = 1 --> 1, 5, 9, 2, 4, 6
+ *                 i = 3, j = 2 --> 1, 2, 5, 9, 4, 6
+ *                 i = 4, j = 3 --> 1, 2, 4, 5, 9, 6
+ *                 i = 5, j = 4 --> 1, 2, 4, 5, 6, 9 "SORTED"
  */
 class Sorting{
 public:
