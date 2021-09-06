@@ -59,6 +59,7 @@ public:
         unsigned nextUglyNum = 1;
         for(int m = 1; m < n; m++){
             nextUglyNum = min(nextOfTwo, min(nextOfThree, nextOfFive));
+            cout << "next: " << m << " " << "(" << nextOfTwo << ", " << nextOfThree << ", " << nextOfFive << ")" << endl;
             ugly[m] = nextUglyNum;
             if(nextUglyNum == nextOfTwo){
                 i++;
