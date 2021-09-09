@@ -49,8 +49,29 @@ A repository to keep track of my roadmap to being a more knowledgeable developer
 |                          |                                                                                                                                    |                                                                          |
 | <ul><li>- [x] </li></ul> | Computational Complexity                                                                                                           | https://www.topcoder.com/thrive/articles/Computational%20Complexity%20part%20one, https://web.mit.edu/16.070/www/lecture/big_o.pdf                 |
 |                          |                                                                                                                                    |                                                                          |
+| <ul><li>- [ ] </li></ul> | Practice Problems(simple & medium)                                                                                                 |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+| <ul><li>- [ ] </li></ul> | Greedy Algorithms                                                                                                                  |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+| <ul><li>- [ ] </li></ul> | Divide and Conquer Algorithms                                                                                                      |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+| <ul><li>- [ ] </li></ul> | Dynamic Programming                                                                                                                | https://www.youtube.com/watch?v=nLmhmB6NzcM                                                                         |
+|                          |                                                                                                                                    |                                                                          |
 | <ul><li>- [ ] </li></ul> |                                                                                                                                    |                                                                          |
 |                          |                                                                                                                                    |                                                                          |
+| <ul><li>- [ ] </li></ul> |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+
+
+
+
+
 
 
 
