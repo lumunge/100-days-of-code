@@ -22,12 +22,41 @@ using namespace std;
  *         values[n-1] + Knapsack(values[n-1], weights, capacity - weights[n-1], n-1)
  *
  * Result = Maximum(case1, case2);
+ *
+ * DYNAMIC PROGRAMMING APPROACH:
+ * Construct a arr[][] to avoid recomputation of same values
+ * eg:
+ *      weights = {2, 3, 4, 5}
+ *      values = {1, 2, 5, 6}
+ *      capacity = 8
+ *                      weights(w)
+ *      arr[i][w] = [0 1 2 3 4 5 6 7 8
+ *      v  w         0 0 0 0 0 0 0 0 0
+ *      1, 2         1 0 1 1 1 1 1 1 1
+ *      2, 3         2 0 1 2 2 3 3 3 3
+ *      5, 4         3 0 1 2 5 5 6 7 7
+ *      6, 5         4 0 1 2 5 6 6 7 8]
+ *
+ *                  x4 = 8, 8 only generated in 4th row, therefore include 4 object in bag x4 = 1;
+ *                  --> 8 - 6 = 2
+ *                  x3 = Is 2 present in 3rd row and 2 is also present in 2nd row, therefore dont include 3rd object: x3 = 0;
+ *                  x2 = 2 is in 2nd row but not in 1st row, therefore include 2nd object in bag: x2 = 1;
+ *                  --> 2 - 2 = 0
+ *                  x1 = Is 0 present in 1st row and also present in 0th row, therefore dont include it: x1 = 0;
+ *                  
+ *                  Result: x1 x2 x3 x4
+ *                          0  1  0  1
+ *                          2nd and 4th object to get maximum
+ *                          6 + 2 = 8
  */
 
 class Knapsack{
 public:
     int maxValue(int values[], int weights[], int capacity, int n){
         return this->bruteKnapsack(values, weights, capacity, n);
+    }
+    int dpMaxValue(int values[], int weights[], int capacity, int n){
+        return this->dpKnapsack(values, weights, capacity, n);
     }
 private:
     int max(int a, int b){
@@ -47,15 +76,34 @@ private:
             return max(bruteKnapsack(values, weights, capacity, n-1), values[n-1] + bruteKnapsack(values, weights, capacity - weights[n-1], n-1)); 
     }
 
+    int dpKnapsack(int values[], int weights[], int capacity, int n){
+        int i, w;
+        vector<vector<int>> arr(n+1, vector<int>(capacity + 1));
+
+        //Building table for arr[][] bottom up
+        for(i = 0; i <= n; i++){
+            for(w = 0; w <= capacity; w++){
+                if(i == 0 || capacity == 0)
+                    arr[i][w] = 0;
+                else if(weights[i-1] <= w)
+                    arr[i][w] = max(values[i-1] + arr[i-1][w - weights[i-1]], arr[i - 1][w]);
+                else
+                    arr[i][w] = arr[i - 1][w];
+            }
+        }
+        return arr[n][capacity];
+    }
+
 };
 
 
 int main(){
     Knapsack ks;
-    int values []= {160, 100, 120};
-    int weights[] = {10, 20, 30};
+    int values []= {1, 2, 5, 6};
+    int weights[] = {2, 3, 4, 5};
+    int capacity = 8;
     int n = sizeof(values) / sizeof(values[0]);
-    int capacity = 50;
     cout << ks.maxValue(values, weights, capacity, n) << endl;
+    cout << ks.dpMaxValue(values, weights, capacity, n) << endl;
     return 0;
 }
