@@ -63,7 +63,7 @@ private:
         return (a > b) ? a : b;
     }
 
-    int bruteKnapsack(int values[], int weights[], int capacity, int n){
+   int bruteKnapsack(int values[], int weights[], int capacity, int n){
         //Base case
         if(n == 0 || capacity == 0){
             return 0;
@@ -73,27 +73,37 @@ private:
             return bruteKnapsack(values, weights, capacity, n-1);
         //Else return max (case1, case2)
         else
-            return max(bruteKnapsack(values, weights, capacity, n-1), values[n-1] + bruteKnapsack(values, weights, capacity - weights[n-1], n-1)); 
+            return max(bruteKnapsack(values, weights, capacity, n-1), values[n-1] + bruteKnapsack(values, weights, capacity - weights[n-1], n-1));
     }
-
+    
     int dpKnapsack(int values[], int weights[], int capacity, int n){
-        int i, w;
+        int i, w; //initialize rows and columns for arr table
         vector<vector<int>> arr(n+1, vector<int>(capacity + 1));
-
-        //Building table for arr[][] bottom up
+        /*
+         * arr(3+1, 8+1)
+         * ie: i
+         * w   0 1 2 3 4 5 6 7 8
+         *   0 0 0 0 0 0 0 0 0 0
+         *   1 0
+         *   2 0
+         *   3 0
+         */
+        //Loop the table filling values; 
         for(i = 0; i <= n; i++){
             for(w = 0; w <= capacity; w++){
-                if(i == 0 || capacity == 0)
+                if(i == 0 || w == 0)
+                    //first row and column
                     arr[i][w] = 0;
                 else if(weights[i-1] <= w)
-                    arr[i][w] = max(values[i-1] + arr[i-1][w - weights[i-1]], arr[i - 1][w]);
+                    //other rows
+                    arr[i][w] = max(values[i-1] + arr[i-1][w - weights[i-1]], arr[i-1][w]);
                 else
-                    arr[i][w] = arr[i - 1][w];
+                    arr[i][w] = arr[i-1][w];
             }
         }
+        //arr[3, 8] == 8;
         return arr[n][capacity];
     }
-
 };
 
 
