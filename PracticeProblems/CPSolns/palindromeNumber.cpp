@@ -2,6 +2,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/* PROBLEM STATEMENT:
+ * Given an interger number, check wheather it is palidnromic
+ * ie: 123 --> 321 false
+ *     121 --> 121 true
+ */
 
 class Solution {
 public:
