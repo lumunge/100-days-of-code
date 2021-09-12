@@ -19,26 +19,37 @@ using namespace std;
 
 class CuttingRod{
 public:
-    int bruteMaxRod(int prices[], int n){
-        return this->bruteCutRod(prices, n);
+    int naiveMaxRod(int prices[], int n){
+        return this->naiveCutRod(prices, n);
     }
     int dpMaxRod(int prices[], int n){
         return this->dpCutRod(prices, n);
     }
 private:
-    int bruteCutRod(int prices[], int n){
+    //Naive recursive solution
+    int naiveCutRod(int prices[], int n){
         //base case
         if(n <= 0)
             return 0;
 
         int maxVal = INT_MIN;
         for(int i = 0; i < n; i++){
-            maxVal = max(maxVal, prices[i] + bruteCutRod(prices, n-i-1));
+            maxVal = max(maxVal, prices[i] + naiveCutRod(prices, n-i-1));
         }
         return maxVal;
     }
+
+    //Dynamic programming solution
     int dpCutRod(int prices[], int n){
-        return 0;
+        int values[n+1];
+        int i, j;
+        for(i = 1; i <= n; i++){
+            int maxVal = INT_MIN;
+            for(j = 0; j < i; j++)
+                maxVal = max(maxVal, prices[j] + values[i-j-1]);
+            values[i] = maxVal;
+        }
+        return values[n];
     }
 };
 
@@ -46,6 +57,10 @@ int main(){
     CuttingRod soln;
     int prices[] = {1, 5, 8, 9, 10, 17, 17, 20};
     int n = 7;
-    cout << soln.bruteMaxRod(prices, n) << endl;
+    cout << soln.naiveMaxRod(prices, n) << endl;
+    cout << soln.dpMaxRod(prices, n) << endl;
     return 0;
 }
+
+
+
