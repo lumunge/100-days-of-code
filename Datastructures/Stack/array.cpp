@@ -1,6 +1,10 @@
 #include<iostream>
 using namespace std;
 
+/*
+ * ARRAY IMPLEMENTSTION OF STACK DS
+ */
+
 class Stack{
 public:
     int stack[100], sz = 100, top = -1;
@@ -67,10 +71,3 @@ int main(){
     }while(choice != 4);
     return 0;
 }
-
-
-
-
-
-
-
