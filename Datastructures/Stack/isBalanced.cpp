@@ -48,18 +48,24 @@ public:
     bool isBalanced(string str){
         char top;
         for(int i = 0; i < str.length(); i++){
-            if(str[i] == '(' || str[i] == '['){
+            if(str[i] == '(' || str[i] == '[' || str[i] == '{'){
                 push(str[i]);
             }else{
                 if(isEmpty())
                     return false;
                 else
                     top = pop();
-                    if(top == '[' && str[i] != ']' || top == '(' && str[i] != ')')
+                    if(top == '[' && str[i] != ']' || top == '(' && str[i] != ')' || top == '{' && str[i] != '}')
                         return false;
             }
         }
-        return true;
+        if(isEmpty()){
+            cout << "Success" << endl;
+            return true;
+        }else{
+            cout << "Failed" << endl;
+            return false;
+        }
     }
 };
 
