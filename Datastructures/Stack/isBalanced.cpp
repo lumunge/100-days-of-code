@@ -3,6 +3,17 @@
 #include<stack>
 using namespace std;
 
+/*
+ * PROBLEM STATEMENT:
+ * Implementing a feature for text editor to find error in the usage of brackets in code
+ *
+ * Sample Input:
+ * Input: []
+ * Output: Success
+ * Input: {[}
+ * Output: 3 --> Unmatched '}' bracket
+ */
+
 string isBalanced(string str){
     stack<pair<char, int>> st;
 
