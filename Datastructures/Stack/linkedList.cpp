@@ -1,6 +1,10 @@
 #include<iostream>
 using namespace std;
 
+/*
+ * LINKED LIST IMPLEMENTATION OF STACK
+ */
+
 struct Node{
     int data;
     struct Node *next;
