@@ -40,6 +40,16 @@ void append(Node** head, int newData){
     return;
 }
 
+//Insert before a node
+void insert(Node* prevNode, int newData){
+    if(prevNode == NULL)
+        cout << "NULL Node" << endl;
+    Node* newNode = new Node();
+    newNode->data = newData;
+    newNode->next = prevNode->next;
+    prevNode->next = newNode;
+}
+
 int main(){
     Node* head = NULL;
     Node* second = NULL;
@@ -63,48 +73,3 @@ int main(){
     printList(head);
     return 0;
 }
-
-/*
-class Node{
-public:
-    int data;
-    Node* next;
-};
-
-
-void push(Node** head, int newData){
-    Node* newNode = new Node();
-    newNode->data = newData;
-    newNode->next = *head;
-    *head = newNode;
-}
-
-void printList(Node* n){
-    while(n != NULL){
-        cout << n->data << " ";
-        n = n->next;
-    }
-    cout << endl;
-}
-
-int main(){
-    Node* head = NULL;
-    Node* second = NULL;
-    Node* third = NULL;
-
-    head = new Node();
-    second = new Node();
-    third = new Node();
-
-    head->data = 1;
-    head->next = second;
-    second->data = 22;
-    second->next = third;
-    third->data = 33;
-    third->next = NULL;
-    push(&head, 56);
-
-    printList(head);
-    return 0;
-}
-*/
