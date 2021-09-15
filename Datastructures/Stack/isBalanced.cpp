@@ -15,22 +15,21 @@ using namespace std;
  */
 
 string isBalanced(string str){
-    stack<pair<char, int>> st;
-
+    stack<pair<char, int>> stack;
     for(int i = 0; i < str.length(); i++){
-        if(str[i] == '(' || str[i] == '[' || str[i] == '{'){
-            st.push({str[i], i});
-        }else if(str[i] == ')' || str[i] == ']' || str[i] == '}'){
-            if(st.empty())
+        if(str[i] == '[' || str[i] == '(' || str[i] == '{')
+            stack.push({str[i], i});
+        else if(str[i] == ']' || str[i] == ')' || str[i] == '}'){
+            if(stack.empty())
                 return to_string(i+1);
-            char top = st.top().first;
-            st.pop();
+            char top = stack.top().first;
+            stack.pop();
             if(top == '[' && str[i] != ']' || top == '(' && str[i] != ')' || top == '{' && str[i] != '}')
                 return to_string(i+1);
         }
     }
     return "Success";
-}
+};
 
 int main(){
     string str;
