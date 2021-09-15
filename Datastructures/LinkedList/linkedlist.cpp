@@ -71,5 +71,7 @@ int main(){
     printList(head);
     append(&head, 100);
     printList(head);
+    insert(head->next->next->next, 99);
+    printList(head);
     return 0;
 }
