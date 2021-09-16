@@ -3,6 +3,7 @@
 using namespace std;
 
 long long int gcd(long long int a, long long int b){
+    assert(a > 0 || b > 0);
     if(a == 0)
         return b;
     if(b == 0)
