@@ -1,7 +1,9 @@
 #include <iostream>
+#include<assert.h>
 using namespace std;
 
 int gcd(int a, int b){
+    assert(a > 0 || b > 0);
     if(a == 0)
         return b;
     else if(b == 0)
