@@ -1,7 +1,7 @@
 ## Linked List
 
 ### Operations:
-    * Add to front of List
+    * Add to front of List --> O(1)
         - Create a new node
         - Assign new data to new node
         - Make next of new node to point to head
