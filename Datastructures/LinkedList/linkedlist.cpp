@@ -45,6 +45,24 @@ public:
         newNode->next = prevNode->next;
         prevNode->next = newNode;
     }
+    //Delete a node
+    void deleteNode(Node** head, int key){
+        Node* temp = *head;
+        Node* prev = NULL;
+        if(temp != NULL && temp->data == key){
+            *head = temp->next;
+            delete temp;
+        }else{
+            while(temp != NULL && temp->data != key){
+                prev = temp;
+                temp = temp->next;
+            }
+            if(temp == NULL)
+                return;
+            prev->next = temp->next;
+            delete temp;
+        }
+    }
 };
 
 int main(){
@@ -58,6 +76,8 @@ int main(){
     list.append(&head, 90);
     list.insertBefore(head->next->next, 80);
     list.insertBefore(head->next, 66);
+    list.printList(head);
+    list.deleteNode(&head, 45);
     list.printList(head);
     return 0;
 }
