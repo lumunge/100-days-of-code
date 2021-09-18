@@ -2,6 +2,18 @@
 #include<vector>
 using namespace std;
 
+/*
+ * PROBLEM STATEMENT:
+ * Given an array, rotate the array to the right by k steps,
+ * k is non-negative
+ *
+ * Sample:
+ * Input: [1, 2, 3, 4, 5, 6, 7], k = 3
+ * 1st Rotation: [7, 1, 2, 3, 4, 5, 6];
+ * 2nd Rotation: [6, 7, 1, 2, 3, 4, 5];
+ * 3rd Rotation: [5, 6, 7, 1, 2, 3, 4]; --> Output;
+ */
+
 class Solution {
 public:
     void printArr(vector<int> nums){
