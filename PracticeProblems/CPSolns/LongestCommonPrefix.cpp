@@ -23,7 +23,6 @@ public:
         }
         return min;
     }
-
     string longestCommonPrefix(vector<string>& strs) {
         int minLen = getMinLength(strs);
         string result;
