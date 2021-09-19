@@ -26,26 +26,28 @@ using namespace std;
 
 int main(){
     int bufferSize, packets, arrival, procTime, time;
+    //Get inputs
     cin >> bufferSize >> packets;
-    queue<pair<int, pair<int, int>>> q;
     vector<pair<int, pair<int, int>>> v(packets);
-    vector<int> results(packets);
+    queue<pair<int, pair<int, int>>> q;
+    vector<int> results(packets); 
     for(int i = 0; i < packets; i++){
         cin >> arrival >> procTime;
         v[i] = make_pair(i, make_pair(arrival, procTime));
     }
+    //Process packets
     arrival = 0;
-    while(arrival < packets && arrival < bufferSize){
-        q.push(v[arrival]);
+    while(arrival < bufferSize && arrival < packets){
+        q.push(v[arrival]); //pushing packet to queue for processing
         arrival++;
     }
     time = 0;
     while(!q.empty()){
-        int st = max(time, q.front().second.first);
-        time = st + q.front().second.second;
-        results[q.front().first] = st;
-        q.pop();
-        while(q.size() < bufferSize && arrival < packets){
+        int startTime = (time, q.front().second.first);
+        time = startTime + q.front().second.second;
+        results[q.front().first] = startTime; //time each packet was processed
+        q.pop(); //Remove packet from queue after being processed
+        while(q.size() < bufferSize && arrival < packets){ 
             if(v[arrival].second.first < time){
                 results[arrival++] -= 1;
             }else{
@@ -58,6 +60,3 @@ int main(){
     }
     return 0;
 }
-
-
-
