@@ -8,10 +8,10 @@ Deletions take place at front of the queue
 
 #### Array Implementation
 
-Enqueue --> Addition of an element to the queue at the back
-        --> Check wheather the queue is full, If rear < n, 
-        --> Store element at rear, increase rear by 1, arr[rear] = newElement, rear++;
-        --> Else if rear == n(size of array) - Queue Overflow, the array is full.
+Enqueue * --> Addition of an element to the queue at the back
+        * --> Check wheather the queue is full, If rear < n, 
+        * --> Store element at rear, increase rear by 1, arr[rear] = newElement, rear++;
+        * --> Else if rear == n(size of array) - Queue Overflow, the array is full.
 
 Dequeue --> Removal of element from queue from the front
         --> Check wheather the queue is empty. rear > 0

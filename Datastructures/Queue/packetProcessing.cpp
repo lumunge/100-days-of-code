@@ -25,13 +25,11 @@ using namespace std;
  */
 
 int main(){
-    int bufferSize, packets;
+    int bufferSize, packets, arrival, procTime, time;
     cin >> bufferSize >> packets;
-    int t;
-    int arrival, procTime;
     queue<pair<int, pair<int, int>>> q;
     vector<pair<int, pair<int, int>>> v(packets);
-    vector<int> result(packets);
+    vector<int> results(packets);
     for(int i = 0; i < packets; i++){
         cin >> arrival >> procTime;
         v[i] = make_pair(i, make_pair(arrival, procTime));
@@ -41,22 +39,25 @@ int main(){
         q.push(v[arrival]);
         arrival++;
     }
-    t = 0;
+    time = 0;
     while(!q.empty()){
-        int st = max(t, q.front().second.first);
-        t = st + q.front().second.second;
-        result[q.front().first] = st;
+        int st = max(time, q.front().second.first);
+        time = st + q.front().second.second;
+        results[q.front().first] = st;
         q.pop();
         while(q.size() < bufferSize && arrival < packets){
-            if(v[arrival].second.first < t){
-                result[arrival++] -= 1;
+            if(v[arrival].second.first < time){
+                results[arrival++] -= 1;
             }else{
                 q.push(v[arrival++]);
             }
         }
     }
     for(int i = 0; i < packets; i++){
-        cout << result[i] << endl;
+        cout << results[i] << endl;
     }
     return 0;
 }
+
+
+
