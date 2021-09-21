@@ -18,16 +18,21 @@ public:
         }
         cout << endl;
     }
+
+    void printReversedString(vector<char>& s){
+        int j = s.size() - 1;
+        for(int i = 0; i < s.size(); i++){
+            cout << s[i+j] << " ";
+            j -= 2;
+        }
+    }
 };
 
 
 int main(){
     Solution soln;
     vector<char> s = {'h', 'e', 'l', 'l', 'o'};
-    soln.reverseString(s);
-    for(int i = 0; i < s.size(); i++){
-        cout << s[i] << " ";
-    }
+    soln.printReversedString(s);
     cout << endl;
     return 0;
 }
