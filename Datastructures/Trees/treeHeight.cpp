@@ -45,10 +45,10 @@ class Tree{
         map<int, Node*> nodes;
 
         void constructTree(){
-            for(int i = 0; i < this->numNodes; i++){
+            for(int i = 0; i < this->numNodes; i++){ //Creating an array[numNodes]
                 this->nodes[i] = new Node(i);
             }
-            for(int i = 0; i < this->numNodes; i++){
+            for(int i = 0; i < this->numNodes; i++){//Reading each parent index
                 int parent = this->parents[i];
                 if(parent == -1)
                     this->root = this->nodes[i];
@@ -59,13 +59,13 @@ class Tree{
 
         int getMaxHeight(Node *node){
             int height = 0;
-            if(node == NULL) return 0;
-            if(node->getSize() == 0) return 1;
+            if(node == NULL) return 0; // No node in tree
+            if(node->getSize() == 0) return 1; //Root node only
             for(int i = 0; i < node->getSize(); i++){
                 int childHeight = this->getMaxHeight(this->nodes[node->children[i]]);
                 height = max(height, childHeight);
             }
-            return height+1;
+            return height+1;//Add root node
         }
 
     public:
@@ -94,8 +94,3 @@ int main(){
     cout << tree->getHeight() << endl;
     return 0;
 }
-
-
-
-
-
