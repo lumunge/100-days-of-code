@@ -49,15 +49,15 @@ class Solution{
         Node* deleteNthNodeII(Node* head, int key){
             Node *fast = head;
             Node *slow = head;
-            for(int i = 0; i < key; i++)
-                fast = fast->next;
-            if(!fast)
-                return head->next;
+            for(int i = 0; i < key; i++)//fast pointer a head start by (key) nodes before start slow pointer
+                fast = fast->next;      //When slow is at key node, fast is at the end
+            if(!fast)                   //first node == key, return 
+                return head->next;       
             while(fast->next){
                 fast = fast->next;
                 slow = slow->next;
             }
-            slow->next = slow->next->next;
+            slow->next = slow->next->next;//make next of slow to be node after key
             return head;
         }
 };
@@ -72,7 +72,6 @@ int main(){
     list.append(&head, 4);
     list.append(&head, 5);
     list.printList(head);
-    cout << endl;
     /*
      * first soln execution
     int nodeDelete = soln.deleteNthNode(&head, 2);
