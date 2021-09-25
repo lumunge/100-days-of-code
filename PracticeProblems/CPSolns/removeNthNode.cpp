@@ -51,9 +51,9 @@ class Solution{
             Node *slow = head;
             for(int i = 0; i < key; i++)//fast pointer a head start by (key) nodes before start slow pointer
                 fast = fast->next;      //When slow is at key node, fast is at the end
-            if(!fast)                   //first node == key, return 
+            if(fast == NULL)            //first node == key, return 
                 return head->next;       
-            while(fast->next){
+            while(fast->next != NULL){
                 fast = fast->next;
                 slow = slow->next;
             }
