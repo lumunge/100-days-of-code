@@ -39,10 +39,26 @@ class Solution{
             return count;
         }
     public:
+        Node* head; //head of list
+
         int deleteNthNode(Node** head, int key){
             int index = count(*head);
             int nodeDelete = getNthNode(*head, index - key);
             return nodeDelete;
+        }
+        Node* deleteNthNodeII(Node* head, int key){
+            Node *fast = head;
+            Node *slow = head;
+            for(int i = 0; i < key; i++)
+                fast = fast->next;
+            if(!fast)
+                return head->next;
+            while(fast->next){
+                fast = fast->next;
+                slow = slow->next;
+            }
+            slow->next = slow->next->next;
+            return head;
         }
 };
 
@@ -57,9 +73,16 @@ int main(){
     list.append(&head, 5);
     list.printList(head);
     cout << endl;
+    /*
+     * first soln execution
     int nodeDelete = soln.deleteNthNode(&head, 2);
     list.deleteNode(&head, nodeDelete);
+    */
+    //2nd solution execution
+    head = soln.deleteNthNodeII(head, 2);
     list.printList(head);
     return 0;
 }
+
+
 
