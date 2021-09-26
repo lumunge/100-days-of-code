@@ -34,7 +34,7 @@ class Solution{
             }
         }
         void fill(vector<vector<int>>& image, int r, int c, int oldColor, int newColor){
-            if(r < 0 || c < 0 || r >= image.size() || c >= image.size() || oldColor != image[r][c])
+            if(r < 0 || c < 0 || r >= image.size() || c >= image[0].size() || oldColor != image[r][c])
                 return;
             image[r][c] = newColor;
             fill(image, r+1, c, oldColor, newColor);
@@ -42,7 +42,7 @@ class Solution{
             fill(image, r, c+1, oldColor, newColor);
             fill(image, r, c-1, oldColor, newColor);
         }
-        vector<vector<int>> floodFill(vector<vector<int>> image, int sr, int sc, int newColor){
+        vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor){
             if(image[sr][sc] == newColor)
                 return image;
             fill(image, sr, sc, image[sr][sc], newColor);
@@ -52,8 +52,8 @@ class Solution{
 
 int main(){
     Solution soln;
-    vector<vector<int>> image = {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}};
-    int sr, sc = 1;
+    vector<vector<int>> image = {{0, 0, 0}, {0, 0, 0}};
+    int sr, sc = 0;
     int newColor = 2;
     vector<vector<int>> result = soln.floodFill(image, sr, sc, newColor);
     soln.printArr(result);
