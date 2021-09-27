@@ -37,7 +37,7 @@ class Traversal{
                 currentLevel(root, i);
         }
 };
-
+/*
 int main(){
     Traversal traverse;
     struct Node* root = new Node(1);
@@ -51,3 +51,4 @@ int main(){
     cout << endl;
     return 0;
 }
+*/
