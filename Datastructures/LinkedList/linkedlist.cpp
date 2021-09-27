@@ -65,6 +65,7 @@ public:
     }
 };
 
+/*
 int main(){
     //Init linked list
     LinkedList list;
@@ -81,3 +82,4 @@ int main(){
     list.printList(head);
     return 0;
 }
+*/
