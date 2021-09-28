@@ -2,6 +2,15 @@
 #include "../../Datastructures/LinkedList/linkedList.cpp"
 using namespace std;
 
+/*
+ * PROBLEM STATEMENT:
+ * Given two sorted linked lists, merge and return sorted merged linked list
+ *
+ * Sample:
+ * Input: head1 = [1, 2, 4], head2 = [1, 3, 4]
+ * Output: mergedHead = [1, 1, 2, 3, 4, 4]
+ */
+
 class Solution {
     public:
         Node* mergeTwoLists(Node* l1, Node* l2){
@@ -10,12 +19,12 @@ class Solution {
                 return l2;
             if(l2 == NULL)
                 return l1;
-            if(l1->data <= l2->data){
-                merged = l1;
-                merged->next = mergeTwoLists(l1->next, l2);
-            }else{
-                merged = l2;
-                merged->next = mergeTwoLists(l1, l2->next);
+            if(l1->data <= l2->data){//l1 has least element
+                merged = l1; //assign smaller element(l1->data) to merged Node
+                merged->next = mergeTwoLists(l1->next, l2); //recurr with next element in l1 and first element in l2
+            }else{//l2 has smaller element
+                merged = l2; //assign smaller element(l2->data) to merged Node
+                merged->next = mergeTwoLists(l1, l2->next); //recurr with first element of l1 and second element in l2
             }
             return merged;
         }
