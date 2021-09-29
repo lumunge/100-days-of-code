@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<queue>
-
+#include "./PrintVector.cpp" // printing vector functions
 using namespace std;
 
 /*
@@ -23,16 +23,6 @@ class Solution{
             return true;
         }
     public:
-        void printMatrix(vector<vector<int>> matrix){
-            int r = matrix.size();
-            int c = matrix[0].size();
-            for(int i = 0; i < r; i++){
-                for(int j = 0; j < c; j++){
-                    cout << "[" << i << "][" << j << "]";
-                    cout << matrix[i][j] << endl;
-                }
-            }
-        }
         vector<vector<int>> matrixDistance(vector<vector<int>>& matrix){
             //rows and columns
             int r = matrix.size();
@@ -72,12 +62,13 @@ class Solution{
 
 int main(){
     Solution soln;
+    PrintVector print;
     vector<vector<int>> matrix = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
     vector<vector<int>> matrixII = {{0, 0, 0}, {0, 1, 0}, {1, 1, 1}};
     vector<vector<int>> matrixDistance = soln.matrixDistance(matrix);
     vector<vector<int>> matrixIIDistance = soln.matrixDistance(matrixII);
-    soln.printMatrix(matrixDistance);
+    print.print2DVector(matrixDistance);
     cout << endl;
-    soln.printMatrix(matrixIIDistance);
+    print.print2DVector(matrixIIDistance);
     return 0;
 }

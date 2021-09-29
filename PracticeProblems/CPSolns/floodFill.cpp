@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include "./PrintVector.cpp"
 using namespace std;
 
 /*
@@ -25,14 +26,6 @@ using namespace std;
 
 class Solution{
     public:
-        void printArr(vector<vector<int>>& arr){
-            for(int i = 0; i < arr.size(); i++){
-                for(int j = 0; j < arr.size(); j++){
-                    cout << "idx: " << "[" << i << "][" << j << "]";
-                    cout << " = " << arr[i][j] << endl;
-                }
-            }
-        }
         void fill(vector<vector<int>>& image, int r, int c, int oldColor, int newColor){
             if(r < 0 || c < 0 || r >= image.size() || c >= image[0].size() || oldColor != image[r][c])
                 return;
@@ -52,10 +45,11 @@ class Solution{
 
 int main(){
     Solution soln;
+    PrintVector print;
     vector<vector<int>> image = {{0, 0, 0}, {0, 0, 0}};
     int sr, sc = 0;
     int newColor = 2;
     vector<vector<int>> result = soln.floodFill(image, sr, sc, newColor);
-    soln.printArr(result);
+    print.print2DVector(result);
     return 0;
 }
