@@ -1,6 +1,5 @@
 #include<iostream>
 #include<vector>
-
 using namespace std;
 
 class Solution{
@@ -37,9 +36,10 @@ class Solution{
 
 int main(){
     Solution soln;
+    PrintVector print;
     int n = 4, k = 2;
     //vector<vector<int>> arr = {{2, 4}, {3, 4}, {2, 3}, {1, 2}, {1, 3}, {1, 4}};
     vector<vector<int>> result = soln.combine(n, k);
-    soln.printVector(result);
+    print.printVector(result);
     return 0;
 }
