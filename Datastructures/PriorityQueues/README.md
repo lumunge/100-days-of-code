@@ -32,7 +32,7 @@
     - A tree is complete if all its levels are filled except possible the last one which
       is filled from left to right.
     - (adv1) Complete binary tree has at most (logn) height.
-    - (adv2) Complete binary tree can be stored as an array
+    - (adv2) Complete binary tree can be stored as an array(1-based Arrays)
              - parent(i)      = floor(i/2)
              - leftChild(i)   = 2i
              - rightChilde(i) = 2i + 1
@@ -107,3 +107,64 @@
     
     - All operations work O(logn), getmax(O(1))
     - Space efficient -> computing on the fly, array storage
+
+##### SORTING USING PRIORITY QUEUES O(nlogn)
+    - PSEUDOCODE:
+        Create empty priority queue
+        for i from 1 to n:
+            INSERT(A[i])
+        for i from n downto 1:
+            A[i] <-- EXTRACTMAX()
+
+    - Uses additional space to store the priority queue
+    - Solution to additional space problem.
+    - Turn array to a heap //inplace sorting
+        * repair heap property going from bottom to top
+        * initially heap property is satisfied in all leaves of depth 0
+        * start repairing heap ppt in subtrees of depth 1 till root and whole tree will
+          satify heap property
+
+        PSEUDOCODE: buildHeap(A)
+            size <-- n
+            for i from floor(n/2) downto 1:
+                SIFTDOWN(i)
+
+        PSEUDOCODE: heapSort(A[1...n])
+            buildHeap(A) //size = n
+            repeat(n - 1) times:
+                swap(A[1] and A[size]
+                size <-- size - 1
+                SIFTDOWN(1)
+
+    - Quicksort average case of O(nlogn) faster than heap sort
+    - Heapsort worst case of O(nlogn) relatively fast
+    - IntroSort = an implementation of both sorting algos switching to heap sort when
+                  quick sort shifts to a running time larger than nlogn
+
+##### BUILDING A HEAP {buildHeap(A)}
+    - Running time of O(nlogn) since we call SIFTDOWN for O(n) nodes however most nodes 
+      are closer to leaves except root, ie root = O(nlogn) its children O(nlogn) - 1 ...
+      running time decreases as we go down the tree and therefore the running time comes
+      down to O(n) linear time.
+    - This however doesnt change running time for heap sort algorithm
+    - Applications include,
+        Partial Sorting:
+        Input:  An array A[1...n], 
+                An integer k
+        Output: The last k elements of a sorted version of A
+
+    - Approach: No need to sort the entire array of elements just to get last k elements
+        PSEUDOCODE:
+            buildHeap(A)         O(n)
+            for i from i to k:
+                Extractmax()     O(klogn)
+        
+    - if k <= n/logn --> running time is O(n) linear
+    
+##### Summary:
+    - Binary min heap can be implemented in same way, whereby the value of each node is at
+      most the values of its two children. Useful for extractMin priority.
+    - D-ary heap -> nodes on all levels except possibly the last one have exactly d children
+                    height = log base d n
+                    SIFTUP = O(log base d n)
+                    SIFTDOWN = O(d log base d n)
