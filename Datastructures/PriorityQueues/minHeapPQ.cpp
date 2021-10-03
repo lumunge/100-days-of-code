@@ -12,44 +12,15 @@ class PriorityQueue{
         int rightChild(int i){return (i*2) + 2;}
 
         //move up the max binary heap
-        void siftUpMax(int i){
-            //check if node @ i and parent violate heap property
-            if(i && arr[parent(i)] < arr[i]){
-                swap(arr[i], arr[parent(i)]);
-                siftUpMax(parent(i));
-            }
-        }
-
-        //move up the max binary heap
-        void siftUpMin(int i){
+        void siftUp(int i){
             //check if node @ i and parent violate heap property
             if(i && arr[parent(i)] > arr[i]){
                 swap(arr[i], arr[parent(i)]);
-                siftUpMin(parent(i));
+                siftUp(parent(i));
             }
         }
-
-        //Move down the max binary heap
-        void siftDownMax(int i){
-            //get children of node @ i
-            int left = leftChild(i);
-            int right = rightChild(i);
-            int max = i;
-            
-            //compare node @ i with left and right to find maximum value
-            if(left < size() && arr[left] > arr[i])
-                max = left;
-            if(right < size() && arr[right] > arr[i])
-                max = right;
-            //swap with child having greater value and siftdown(child)
-            if(max != i){
-                swap(arr[i], arr[max]);
-                siftDownMax(max);
-            }
-        }
-    
         //Move down the min binary heap
-        void siftDownMin(int i){
+        void siftDown(int i){
             int left = leftChild(i);
             int right = rightChild(i);
             int min = i;
@@ -60,11 +31,9 @@ class PriorityQueue{
                 min = right;
             if(min != i){
                 swap(arr[i], arr[min]);
-                //siftDownMax(min);
-                siftDownMin(min);
+                siftDown(min);
             }
         }
-
     public:
         //check if arr is empty
         bool isEmpty(){return arr.size() == 0;}
@@ -75,11 +44,10 @@ class PriorityQueue{
         void push(int k){
             //pushed to back of arr and get index of element and siftUp(index)
             arr.push_back(k);
-            siftUpMax(size() - 1); //for max heap
-            //siftUpMin(size() - 1);   //for min heap
+            siftUp(size() - 1);   //for min heap
         }
-        //remove elements from front of arr
-        void pop(){
+        //remove minimum element
+        void extractMin(){
             try{
                 if(size() == 0){
                     throw out_of_range("Underflow");
@@ -88,8 +56,7 @@ class PriorityQueue{
                 //siftDown(root)
                 arr[0] = arr.back();
                 arr.pop_back();
-                siftDownMax(0); //for max heap
-                //siftDownMin(0);   //for min heap
+                siftDown(0);   //for min heap
             }
             catch(const out_of_range &oor){
                 cout << endl << oor.what();
@@ -119,25 +86,26 @@ int main(){
     pq.push(15);
     cout << "Size: " << pq.size() << endl;
     cout << pq.top() << " ";
-    pq.pop();
+    pq.extractMin();
     cout << pq.top() << " ";
-    pq.pop();
+    pq.extractMin();
     pq.push(5);
     pq.push(4);
     pq.push(45);
     cout << endl;
     cout << "Size: " << pq.size() << endl;
     cout << pq.top() << " ";
-    pq.pop();
+    pq.extractMin();
     cout << pq.top() << " ";
-    pq.pop();
+    pq.extractMin();
     cout << pq.top() << " ";
-    pq.pop();
+    pq.extractMin();
     cout << pq.top() << " ";
-    pq.pop();
+    pq.extractMin();
     cout << endl << boolalpha << pq.isEmpty();
     pq.top();
-    pq.pop();
+    pq.extractMin();
     cout << endl;
     return 0;
 }
+
