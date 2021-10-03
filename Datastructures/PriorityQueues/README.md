@@ -2,20 +2,23 @@
     - Stored in a complete binary tree-> stored as an array.
     - Generalization of queue datastructure, each element is assigned a priority and 
       elements come out in order of priority, (Extractmax(elem)).
-    - Applications, job scheduling.
+    - Applications, cpu scheduling, all queue operations with priority
+    - Algos using priority queues:
+        * Dijkstra's algorithm -> finding shortest path in graph.
+        * Prim's algorithm -> constructing minimum spanning tree
+        * Huffman's algorthim -> constructing optimum prefix-free encoding of string(mp3)
+        * Heap sort -> inplace (nlogn)
     - Operations:
                 * Insert(x) - O(treeheight)
                 * Extractmax(x) - O(treeheight)
                 * Remove(x) - O(treeheigt)
                 * Getmax(x) - O(1)
                 * Changepriority(x) - O(treeheight)
-    - Algos using priority queues:
-        * Dijkstra's algorithm -> finding shortest path in graph.
-        * Prim's algorithm -> constructing minimum spanning tree
-        * Huffman's algorthim -> constructing optimum prefix-free encoding of string(mp3)
-        * Heap sort -> inplace (nlogn)
-    - Max binary heap -> a binary tree where value fo each node is at least value of
-      its children.
+##### Binary Heap
+    - Complete tree, all levels filled except possibly the last level and last level has
+      all keys as left as possible.
+    - Can be Min Heap / Max binary heap -> root must be minimum among all keys present
+      in binary heap  
     - Operations:
                 * Insert(x)         -> attach element to leaf and SIFTUP(move closer to root ->
                                        replace with parent) if heap property is violated. 
@@ -63,7 +66,7 @@
 
     - SIFTUP(i)
         while(i > 1 && h[parent(i)] < h[i])
-            swap (h[parent(i),  h[i])
+            swap (h[parent(i)],  h[i])
             i <-- parent(i)
             
     - SIFTDOWN(i)
