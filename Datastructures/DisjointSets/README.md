@@ -9,7 +9,8 @@
     
     - Applications:
         * Building a Network(Kruskal's Aglo) -> check if two machines are in same network
-        * Mazes
+        * Computing shorelines of terrain
+        * Connected component labelling in image analysis
 
     - Sample Problem:
         In a maze find out if point A is reachable from point B
