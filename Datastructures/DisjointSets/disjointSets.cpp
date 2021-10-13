@@ -3,9 +3,11 @@ using namespace std;
 
 class DisjointSet{
     private:
-        int *rank, *parent, n;
-
+        int *rank;
+        int *parent;
+        int n;
     public:
+        //constructor
         DisjointSet(int n){
             rank = new int[n];
             parent = new int[n];
@@ -18,24 +20,24 @@ class DisjointSet{
                 parent[i] = i;
         }
 
-        int find(int x){
-            if(parent[x] != x)
-                parent[x] = find(parent[x]);
-            return parent[x];
+        int find(int i){
+            if(parent[i] != i)
+                parent[i] = find(parent[i]);
+            return parent[i];
         }
 
-        void unionSet(int x, int y){
-            int xSet = find(x);
-            int ySet = find(y);
-            if(xSet == ySet)
+        void unionSet(int i, int j){
+            int i_id = find(i);
+            int j_id = find(j);
+            if(i_id == j_id)    // they are equal
                 return;
-            if(rank[xSet] < rank[ySet])
-                parent[xSet] = ySet;
-            else if(rank[xSet] > rank[ySet])
-                parent[ySet] = xSet;
+            if(i_id < j_id)     // place smaller under larger
+                parent[i_id] = j_id;
+            else if(i_id > j_id)
+                parent[j_id] = i_id;
             else{
-                parent[ySet] = xSet;
-                rank[xSet] = rank[xSet] + 1;
+                parent[i_id] = j_id;
+                rank[i_id] = rank[i_id] + 1;
             }
         }
 };
@@ -55,10 +57,3 @@ int main(){
         cout << "false" << endl;
     return 0;
 }
-
-
-
-
-
-
-
