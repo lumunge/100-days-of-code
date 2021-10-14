@@ -96,6 +96,7 @@
                       running time also called union by rank heuristic
                     
                     UNION BY RANK:
+                        - Always attach smaller depth tree under the root of depper tree.
                         - To quickly find tree height of subtree, create an array
                           rank[1...n]: rank[i] -> height of subtree whose root is i
 
@@ -120,6 +121,9 @@
                             * Invariant --> for any node i, rank[i] == height of tree rooted at i
                     
                     PATH COMPRESSION:
+                        - Flatten tree where find() is called, find() traverses up from node up to the root
+                        - Make the found root as parent of node so no need to traverse immediate nodes again.
+                        - If x is root of subtree, then path(to root) from all nodes under x is compressed.
                         - Find(i) will traverse path from i to root
                         - Not only will it find root of i but also finds all roots of
                           nodes its path
