@@ -134,24 +134,51 @@
             L.Erase(O)
 
 ##### HASHFUNCTIONS
+    - Speed of hashtable depends on choice of hash function
+    - Good hash functions are deterministic
+    - Fast to compute
+    - Distributes keys well to different cells in terma of chaingin method
+    - Few collisions
 
 ###### Phonebook Problem;
-    - 
+    - PROBLEM STATEMENT:
+        -> Design a data structure to store contacts, names of people along with phone
+           numbers.
+           The data structure should do the following quicky
+                Add and delete contacts
+                Lookup phone number by name and vice versa
+                Determine who is calling given phone number
 
+    - Mappings 1: phone number to name 2: name to phone number 
+    
+    - DIRECT ADDRESSING:
+        -> Create an array Name[10^L] L = max length of phone number
+        -> Store name corresponding to phone number Name[int(P)]
+        -> If no contact Name[int(P)] == NULL
 
+        -> Time = O(1) - direct access
+        -> Memory = O(10^L) - exponential, 1TB -> to store a phone book
 
+    - CHAINING:
+        -> Select hash function with cardinality m
+        -> Create array Name[m]
+        -> Store chains in each cell based on hash value as discussed above
+        -> Chain Name[h(int(p))] contains name for phone number p
+        -> n phone numbers stored
+        -> m cardinality of hash function, size of array
+        -> O(n+m) memory
+        -> O(c+1) time
+        -> Alpha = n/m load factor
+        -> Need small c and m
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        -> Hashfunctions:
+            Sample 1: (First Digits) -> take first digits of phone number
+                m = 1000
+                -> Problem: similar area code, hash values will be same
+            Sample 2: (Last Digits(
+                m = 1000
+                -> Problem: similar ending numbers
+            Sample 3: (Random Number)
+                m = 1000
+                Good distribution but cannot find value because of randomizing, not deterministic
+                must return same value when given same value as input
