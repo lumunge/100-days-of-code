@@ -166,9 +166,10 @@
         -> Chain Name[h(int(p))] contains name for phone number p
         -> n phone numbers stored
         -> m cardinality of hash function, size of array
+        -> c length of longest chain
         -> O(n+m) memory
         -> O(c+1) time
-        -> Alpha = n/m load factor
+        -> Alpha = n/m = load factor
         -> Need small c and m
 
         -> Hashfunctions:
@@ -182,3 +183,12 @@
                 m = 1000
                 Good distribution but cannot find value because of randomizing, not deterministic
                 must return same value when given same value as input
+        
+        - UNIVERSAL FAMILY
+            - For any deterministic hash function there is a bad input for which there will
+              be alot of collisions.
+            - Define a family (set) of hash functions and choose a random function from the
+              family.
+            - U -> set of all possible keys (universe).
+            - Universal family -> a set of hash functions whereby any two keys in the universe
+              have a small probability of collision.(deterministic)
