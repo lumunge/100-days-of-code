@@ -155,14 +155,34 @@
         -> Create an array Name[10^L] L = max length of phone number
         -> Store name corresponding to phone number Name[int(P)]
         -> If no contact Name[int(P)] == NULL
+                                            
+                                             ______
+                                            |      |
+        john 138-908-367 --> 138908367   -> | john |
+                                            | NULL |
+                                            | NULL |
+                                            | ...  |
+        doe 138-908-370 -->  138908370  ->  | doe  |
+                                            | NULL |
+                                            | ...  |
 
         -> Time = O(1) - direct access
-        -> Memory = O(10^L) - exponential, 1TB -> to store a phone book
+        -> Memory = O(10^L) - exponential, 1TB -> to store a fairly large phone book
 
     - CHAINING:
         -> Select hash function with cardinality m
         -> Create array Name[m]
         -> Store chains in each cell based on hash value as discussed above
+
+          m -> cardinality of hash function, if to numbers have same cardinality, chain them
+        | 0 | 
+        | 1 |
+        | 2 | -> John: 138908367 -> meg: 138908366 
+        | 3 |
+        | 4 |
+        | 5 | -> Doe: 138908370
+        | 6 |
+
         -> Chain Name[h(int(p))] contains name for phone number p
         -> n phone numbers stored
         -> m cardinality of hash function, size of array
@@ -192,3 +212,105 @@
             - U -> set of all possible keys (universe).
             - Universal family -> a set of hash functions whereby any two keys in the universe
               have a small probability of collision.(deterministic)
+            - Selecting random hash functions from the set of deterministic hash functions and select
+              on function and use it through out the whole algorithms
+            - Time = O(1 + load factor(alpha)) == constant time!!
+              load factor -> ratio of number of keys to size of allocated hash table(cardinality)
+            - Choosing size of hash table:
+                load factor  =  0.5 < alpha < 1 O(n) memory
+                                                O(1+alpha) time
+                What about dynamic tables:
+                    - Dymanic arrays idea -> resize hash table when alpha becomes too large
+                                          -> choose new hash function to rehash all objects
+
+            - PSEUDOCODE:
+               //keeping load factor below n
+                Rehash(T): Time == O(n) 
+                    loadFactor <- T.numberOfKeys / T.size
+                    if loadFactor > n:
+                        create Tnew of size*2 * T.size
+                        choose newHash with Tnew.size cardinality
+                        For each object O in T:
+                        insert O in Tnew using newHash
+                    T <- Tnew
+                    hash <- newHash
+
+            - Rehashing happens rarely so armotized runnng time for each operation in the
+              hash table is still constant.
+        
+        - HASHING INTEGERS
+            - Sample phone numbers with length 7
+            - 148-23-90 --> 1482390
+            - Choose big prime number 10^7 (1000023) (p)
+            - Choose hash table size m = 1000 (m)
+            - Create a universe of hash functions. (universal family)
+            - Hp = {    a, b
+                      h      (x) = ((ax + b) mod p) mod m 
+                        p                                  }
+
+                        a, b: 1 <= a <= p - 1
+                              0 <= b <= p - 1
+            - p(p - 1) --> size of universal family.
+
+            - Eg:
+                hashing 148-25-67 --> 1482567
+
+                     34, 2              a = 34
+                h = h                   b = 2
+                      10 000 019        x = 1482567
+                                        m = 1000
+
+                soln:
+                    (34 * 1482567 + 2) mod 10000019 = 407185
+                    407185 mod 1000 = 185
+
+                    h(x) = 185
+
+                    -> any value of hash function will be between 0 - 999
+
+            - General Case:
+                -> define max length of phone number
+                -> convert phone number to integers from 0 - 10^L - 1
+                -> Choose p > 10^L
+                - Choose hash table size m
+                -> Choose random hash function from universal family
+                -> a - random number [1, p-1]
+                -> b - random number [-, p-1] a, b define hash function.
+                
+        - HASHING STRINGS
+            - Map names to phone numbers
+            - Hash abitrary string of characters
+            - |S| -> length of string
+            - Use all caharcters to avoid collisions
+            - Convert each character to ASCII / UniCode
+            - Choose big prime number p
+            - Create universal family of hash functions using Polynomial Hashing
+            
+            - PSEUDOCODE:
+                PolyHash(S, p, x): O(|S|) time, O(1) if string is bounded
+                    hash <- 0
+                    for i from |S|-1 down to 0:
+                        hash <- (hash * x + S[i]) mod p
+                    return hash
+
+            Iterations:
+                |S| = 3
+                
+                hash = 0
+                hash = S[2] mod p
+                hash = S[1] + S[2]x mod p
+                hash = S[0] + S[1]x + S[2]x^2 mod p // polyminial hash function
+
+            - All hash functions in the universal family will have the cardinality p which
+              is a very large number.
+            - Make cardinality of hash function to be small because it will be size of hash table
+            - Fixing Cardinaltity
+                -> Take string and apply random function from polynimial family
+                -> Apply random function from universal family for integers to result
+                -> Use the two functions through out the algorithm
+                -> More formally...
+                -> Choose cardinality m and prime number p>m
+                -> Choose a random hash function h from the polynomial hash family Pp
+                -> Choose a random hash function h_int the universal family Hp for integers
+                   between 0 and p−1 .
+                -> Use hash function hm(x) = h_int(h(x))
