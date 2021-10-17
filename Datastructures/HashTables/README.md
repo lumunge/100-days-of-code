@@ -47,6 +47,9 @@
         -> Small cardinality m, but impossible to have different values if |S| is more than
            m. -> will lead to collisions.
     - Collisions -> Whereby values of hash functions are same but encoded objects are different
+    - Collisions are handled by:
+        -> Separate Chaining - making each cell of hash table point to list with same hash value
+        -> Open Addressing - All elements are stored in hash table, table size must be >= number of keys
 
 ##### CHAINING
     - Technique for store mappings from one type to another object type.
