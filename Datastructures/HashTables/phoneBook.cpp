@@ -1,5 +1,6 @@
 #include<iostream>
-#include<unordered_map>
+#include<map>
+#include<vector>
 using namespace std;
 
 /*
@@ -30,29 +31,50 @@ using namespace std;
  *                del
  */      
 
-int main(){
-    unordered_map<int, string> phonebook;
-    int n;
-    cin >> n;
+struct Query{
     string cmd, name;
     int number;
+};
+
+vector<Query> readQueries(){
+    int n;
+    cin >> n;
+    vector<Query> queries(n);
     for(int i = 0; i < n; i++){
-        cin >> cmd;
-        if(cmd == "add"){
-            cin >> number >> name;
-            phonebook[number] = name;
-        }else if(cmd == "find"){
-            cin >> number;
-            if(phonebook.find(number) == phonebook.end())
-                cout << "not found" << endl;
-            else
-                cout << phonebook.at(number) << endl;
-        }else if(cmd == "del"){
-            cin >> number;
-            phonebook.erase(number);
-        }else{
-            cout << "not a command";
+        cin >> queries[i].cmd;
+        if(queries[i].cmd == "add")
+            cin >> queries[i].number >> queries[i].name;
+        else
+            cin >> queries[i].number;
+    }
+    return queries;
+}
+
+vector<string> processQueries(const vector<Query>& queries){
+    map<int, string> phonebook;
+    vector<string> results;
+    for(size_t i = 0; i < queries.size(); ++i){
+        if(queries[i].cmd == "add")
+            phonebook[queries[i].number] = queries[i].name;
+        else if(queries[i].cmd == "del")
+            phonebook.erase(queries[i].number);
+        else{
+            string response = "not found";
+            map<int, string>::iterator it = phonebook.find(queries[i].number);
+            if(it != phonebook.end())
+                response = it->second;
+            results.push_back(response);
         }
     }
+    return results;
+}
+
+void writeResponses(const vector<string>& result){
+    for(size_t i = 0; i < result.size(); ++i)
+        cout << result[i] << "\n";
+}
+
+int main(){
+    writeResponses(processQueries(readQueries()));
     return 0;
 }
