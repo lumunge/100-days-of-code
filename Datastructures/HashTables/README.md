@@ -317,3 +317,111 @@
                 -> Choose a random hash function h_int the universal family Hp for integers
                    between 0 and p−1 .
                 -> Use hash function hm(x) = h_int(h(x))
+
+###### SEARCHING TEXT USING HASHING
+    - Problem statement:
+        -> Given a text T (book, website) and pattern P (word, phrase, sentence), find all
+           occurrences of P in T.
+        -> Notation
+            S[i....j]
+            s = "abcde"
+            s[0...4] = "abcde"
+            s[1...3] = "bcd"
+            s[2...2] = "c"
+        -> Input: Strings T and P
+           Output: All such positions i in T that T[i..i + |P| - 1] = P
+           Sample: P = ab 
+                   T = abcababa
+           Output: 0, 3, 5
+    - NAIVE ALGORITHM:
+        -> Go through all possible positions i from 0 to difference of length of text and
+           pattern and check wheather the corresponding substring of T is equal to pattern
+           If equal append positions i to result
+        
+        PSEUDOCODE:
+            AreEqual(S1, S2):
+                if |S1| != |S2|:  // lengths of two strings are equal retrun false
+                    return False
+                for i from 0 to |S1| - 1:
+                    if S1[i] != S2[i]:
+                        return False
+                return True
+
+            FindPatternNaive(T, P):  O(|T||P|) time
+                result <- empty list
+                for i from 0 to |T| - |P|:
+                    if AreEqual(T[i..i + |P| - 1], P):
+                        result.append(i)
+                return result
+
+            O(|T|P|) time -> O(|P|) time for AreEqual calls
+            |T| - |P| + 1 calls == O(|T||P|) calls
+    
+    - RABIN-KARP'S ALGORITHM:
+        - Using hashing, introduce hash function h()
+        - if h(P) != h(S), P != S
+        - if h(P) == h(S), call AreEqual(P, S)
+        - Use polynimial hash family with big prime number
+        - if P != S, probability is very small Pr[h(P) = h(S)] is at most |P| / big prime,
+          for polynomial hashing.
+
+        - PSEUDOCODE:
+            RabinKarp(T, P):
+                p <- bigPrime
+                x <- random(1, p-1)   // specific hash function from polynomial family
+                result <- empty list  
+                pHash <- PolyHash(P, p, x)   // recompute hash value of pattern
+                for i from 0 to |T| - |P|:
+                    tHash <- PolyHash(T[i..i + |P| - 1], p, x) // take substring comput hash value of substring
+                    if pHash != tHash:  // if different, they are not equal
+                        continue
+                    if AreEqual(T[i..i + |P| - 1], P):  // same hash values
+                        result.append(i)
+                return result
+
+        - False Alarms:
+            -> Event when P is compared with  substring of T (T[i..i + |P| - 1]) but
+               P != substring
+            -> Probability is |P| / p
+            -> Reduce false alarms by choosing big prime larger than product of |P| and |T|
+               (p >> |P||T|)
+            
+        - h(P) -> O(|P|) time
+        - h(T[i..i + |P| + 1]) -> O(|P|, |T| - |P| + 1 time
+        - O(|T||P|) time
+        - AreEqual -> O(|P|) time, called when hash values are same, (p >> reduces false alarms)
+
+    - Improving Running Time
+        - Polynominal hashing properties
+            -> big prime number for polynomial family
+            -> random integer to select random hash function
+        - value of the hash function is polynimial of x with coefficients which are 
+          characters of string S.
+        - IDEA: Polynomial hashes of two consecutive substrings of T are similar
+        - One can be computed in constant time goven the other
+        - H[i] = hash value for substring of text starting at i, having same length as pattern.
+        
+        - Consecutive substrings
+            
+            T =    a   b   c   b   d
+            T^ = [ 0 | 1 | 2 | 1 | 3 ] => hash values
+            |P| = 3
+
+            h("cbd") = (2 + x + 3x^2) mod p
+            h("bcb") = (1 + 2x + x^2) mod p  => 2 and 1 coefficients are similar
+            h("abc") = (0 + x + 2x^2) mod p  => 1 and 2 coefficients are similar
+        
+        therefore:
+            => H[i] = xH[i + 1] + (T[i] - T[i + |P|]x^|P|) mod p
+
+        - PSEUDOCODE:  
+            // Precompute hash values of polynimial hash fuction on substrings of text T with length equal to pattern
+            PrecomputeHashes(T, |P|, p, x):
+                H <- array of length |T| - |P| + 1
+                S <- T[|T| - |P|] <- polyHash(S, p, x)
+                y <- 1
+                for i from 1 to |P|:
+                    y <- (y * x) mod p
+                    for i from |T| - |P| - 1 down to 0:
+                        H[i] <- (xH[i+1] + T[i] - yT[i + |P|]) mod p
+                return H
