@@ -389,7 +389,7 @@
         - h(P) -> O(|P|) time
         - h(T[i..i + |P| + 1]) -> O(|P|, |T| - |P| + 1 time
         - O(|T||P|) time
-        - AreEqual -> O(|P|) time, called when hash values are same, (p >> reduces false alarms)
+        - AreEqual -> O(|P|) time, called when hash values are same, (p >> reduces false alarms, 'spurious hits') -> get a good hash function
 
     - Improving Running Time
         - Polynominal hashing properties
@@ -425,3 +425,4 @@
                     for i from |T| - |P| - 1 down to 0:
                         H[i] <- (xH[i+1] + T[i] - yT[i + |P|]) mod p
                 return H
+
