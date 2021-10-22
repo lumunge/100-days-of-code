@@ -263,9 +263,83 @@ operations  rangeSearch()      | impossible |  O(n)  |  O(log(n)) b/s|     O(n) 
 
         -> need to know subtree to search
         -> need to know number of element in subtree
+    
+    - Number of elements in subtree of N ==>  N.size = N.left.size + n.right.size + 1
+
+    - Maintining sizes
+
+    PSEUDOCODE:
+        RecomputeSize(n):
+             N.size = N.left.size + n.right.size + 1
+
+        Rotate:
+            same pseudocode
+            RecomputeSize(old root)
+            RecomputeSize(new roor)
+        
+        // kth smallest element
+        OrderStatistics(r, k):  O(h) time
+            s <- r.left.size                                // s left subtree size
+            if(k = s + 1)                                   
+                return r
+            else if(k < s + 1)                              // kth smallest element in left subtree
+                return OrderStatistics(r.left, k)
+            else if(k > s + 1)
+                return OrderStatistics(r.right, k - s - 1)
+
+        
+
+    - COLOR FLIPS:
+        -> Given an array of squares, black & white
+        -> Flip colors of all squares after index x
+
+        Sample:
+            [w, w, w, b, b, w, w, b, w]   index = 5
+                         .
+                         .
+                         .
+                         v
+            [w, w, w, b, b, b, b, w, b]
+        
+        -> OPERATIONS
+            NewArray(n) - creates an array with n white squares
+            Color(m) - Return color of mth square
+            Flip(x) - Flips the color of all squares of index > x 
+
+            Datastructures:
+                Array -> slow flipping O(n)
+
+            BSTS
+                - Store elements in sorted order
+                - Use two trees, normal colors and opposite colors
+                - When we need to flip, swap elements of opposite trees
+                
+                    PSEUDOCODE:
+                        NewArray(n):
+                            Create two trees t1, t2, with keys 1...n
+                            Give nodes extra color field in their structure
+                            t1 color is white
+                            t2 color is black
+
+                        Color(m):
+                            n <- find(m, t1)
+                            return n.color
+
+                        Flip(x):
+                            (l1, r1) <- Split(t1, x)
+                            (l2, r2) <- Split(t2, x)
+                            Merge(l1, r2) -> t1
+                            Merge(l2, r1) -> t2
+
+    - BSTs can also be used to store lists
 
 
-
+##### SPLAY TREES
+    - There are many bsts that give different ways to ensure balance
+    - Splay trees are one of them
+    - Non Uniform Inputs Search == O(log(n)) time
+    - If some items are queried mostly, put them near root for faster search
+    - 
                     
                 
 
