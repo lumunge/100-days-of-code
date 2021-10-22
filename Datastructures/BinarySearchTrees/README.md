@@ -53,7 +53,7 @@ operations  rangeSearch()      | impossible |  O(n)  |  O(log(n)) b/s|     O(n) 
                     return r                    // k is missing in tree return position it should be
                 else if(r.key < k):
                     if(r.right != null):
-                        return find(k, r.right)  //key is larger searh right subtree
+                        rveturn find(k, r.right)  //key is larger searh right subtree
                     return r
 
     - Adjacent Elements:
@@ -142,3 +142,176 @@ operations  rangeSearch()      | impossible |  O(n)  |  O(log(n)) b/s|     O(n) 
                 p.appropriateChild <- y
                 x.parent < y, y.right <- x
                 b.parent < x, x.left <- b
+
+#### AVL Trees
+    - A way to maintain balance in bst
+    - Height of node is max depth of its subtree
+    - height of tree = 1 + max(leftHeight, rightHeight)
+    - Tree structure will be adjusted to cater for node height
+        -> Parent
+        -> Height
+        -> Left
+        -> Right
+    - AVL Property -> |leftHeight - rightHeight| <= 1
+    - This will ensure balance, height = O(log(n))
+    - Operations will be O(log(n)) time
+
+    - OPERATIONS:
+        -> Insertion - will require new algorithms to cater for the rebalancing to maintain
+                       AVL property
+
+                        PSEUDOCODE:
+                            AVLInsert(k, r):
+                                Insert(k, r)
+                                N <- find(k, r)
+                                rebalance(n)
+
+                            Rebalance(n):
+                                p <- n.parent                           // store pointer to parent, for later rebalancing
+                                if(n.left.height > n.right.height + 1)  // if leftheight is bigger 
+                                    RebalanceRight(n)                   // rebalance rightwards
+                                if(n.right.height > n.left.height + 1)  // if rightHeight is bigger
+                                    RebalanceLeft(n)                    // rebalance leftwards
+                                AdjustHeight(n)                         // readjust stored height of n
+                                if(p != null)                           // if pointer to parent is not null, rebalance at parent
+                                    Rebalance(p)
+                            
+                           
+                            AdjustHeight(n):
+                                n.height <- 1 + max(n.left.height, n.right.height)
+
+                            
+
+                            RebalanceRight(n):
+                                m <- n.left
+                                if(m.right.height > m.left.height)
+                                    RotateLeft(m)
+                                RotateRight(n)
+                                AdjustHeight on affected nodes
+
+
+                            AVLDelete(n)
+                                Delete(n)
+                                m <- parent of replacement node
+                                Rebalance(m)
+
+    - All operations will be O(log(n)) time
+
+    - ADDITIONAL OPERATIONS:
+        -> Merge - Combining two binary search trees to single one 
+        -> Split - Break up a bst to two bsts
+
+    - MERGE
+        - O(n) for merging two sorted lists, merge is faster when they are separated
+        input: roots, r1, r2, whereby r1's keys are all smaller then r2's keys
+        ouput: root of new tree with elements from both bsts
+
+        PSEUDOCODE:
+            MergeWithRoot(r1, r2, t):  O(1)
+                t.left <- r1
+                t.right <- r2
+                r1.parent <- t
+                r2.parent <- t
+                return t
+
+            Merge(r1, r2):              O(h) time
+                t <- find(inf, r1) //find largest in left subtree
+                Delete(t)
+                MergeWithRoot(r1, r2, t)
+                return t
+
+    - merge does not preserve balance
+
+            AVLMergeWithRoot(r1, r2, t): O(|r1.height - r2.height| + 1)
+                if(r1.height - r2.height <= 1)
+                    MergeWithRoot(r1, r2, t)
+                    t.ht <- max(r1.height, r2.height) + 1
+                    return t
+                else if(r1.height > r2.height)
+                    r1^ <- AVLMergeWithRoot(r1.right, r2, t)
+                    r1.right <- r^
+                    r^.parent <- r1
+                    Rebalance(r1)
+                    return root
+                else if(r1.height < r2.height)
+                    Same on the opposite side
+
+    - SPLIT
+        input: root r of tree, key x
+        output: two trees, tree1 - elements < key x, tree2 - elements > key x
+
+        PSEUDOCODE:
+            Split(r, x):                O(log(n)) time
+                if(r.null):
+                    return(null, null)
+                if(x < r.key)                           // everything on right > x
+                    (r1, r2) <- Split(r.left, x)        // split on left, r1 all are smaller than x
+                    r3 <- AVLMergeWithRoot(r2, r.right, r) // r2 to be combined with whole right subtree of original tree
+                    return(r1, r3)                  
+                if(x > r.key):
+                    same thing on opposite side
+            
+
+##### BST APPLICATIONS: 
+    - ORDER STATISTICS:
+        -> Return 5th largest element
+        -> Median element
+        -> 25th percentile
+
+        input: root r, number k
+        ouput: kth smallest element in r
+
+        -> need to know subtree to search
+        -> need to know number of element in subtree
+
+
+
+                    
+                
+
+
+
+
+                                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
