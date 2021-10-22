@@ -339,53 +339,90 @@ operations  rangeSearch()      | impossible |  O(n)  |  O(log(n)) b/s|     O(n) 
     - Splay trees are one of them
     - Non Uniform Inputs Search == O(log(n)) time
     - If some items are queried mostly, put them near root for faster search
-    - 
-                    
-                
+    - Rotating to top
+    - look at node's parent and grandparent
+        -> Zig Zig Case - parent and grandparent are on same side
+                        - elevate node up to become parent of its old parent which is 
+                          parent of old grandparent
+        -> Zig Zag Case - parent and grand parent are on opposite sides
+                        - elevate node up so it will become parent of its parent and gp
+        -> Zig Case     - parent of node is root node
+                        - rotate to root
 
 
+        PSEUDOCODE:
+            // bringing node n to root of tree
+            Splay(n)
+                Determine case
+                Apply Zig-Zig, Zig-Zag, Zig appropriately
+                if(n.parent != null)
+                    Splay(n)
+
+        Sample:
+            Splay(4)
+
+                5                       5                     4 
+              /                        /                    /   \
+             1      (zig zig) -->     1     (zig zag) -->  1     5
+              \                         \                   \
+               2                         4                   3
+                 \                      /                   /
+                   3                   3                   2 
+                     \                /
+                       4             2
+    
+    - Splay is slow, because there is guarantee of a balanced tree                
+    - Splay operation is better than rotate to top because it will rebalance tree
+    - Armotized cost of doind O(D) work the splaying node of depth D is O(log(n)) n = nodes
+    
+    - PSEUDOCODE:
+        SplayTreeFind(k, r): O(log(n)) armotized time, O(D) time to find n, Splay n
+            n <- Find(k, r)
+            Splay(n)
+            return n
+
+        -> if node is deep, useful rebalancing was done
+        -> If we fail to find key, splay the closest node found
+
+        SplayTreeInsert(k, r):
+            Insert(k, r)
+            SplayTreeFind(k, r)
+
+        Delete -> bring n and successor to top, delete n, make successor root
+
+        SplayTreeDelete(n):
+            Splay(Next(n))
+            Splay(n)
+            l <- n.left
+            r <- n.right
+            r.left <- l
+            l.parent <- r
+            root <- r
+            r.parent <- null
+
+        SpayTreeSplit(r, x):
+            n <- Find(x, r)
+            Splay(n)
+            if(n.key > x)
+                return CutLeft(r)
+            else if(n.key < x)
+                return CutRight(r)
+            else
+                return n.left, n.right
 
 
-                                
+        CutLeft(n):
+            l <- n.left
+            n.left <- null
+            l.parent <- null
+            return l, n
 
+        Merge -> splay largest element of 1st tree, hang 2nd tree to root of 1st tree
 
+        SplayTreeMerge(r1, r2):
+            n <- Find(inf, r1)
+            Splay(n)
+            n.right <- r1
+            r2.parent <- n
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+    - Operations are in O(log(n)) armotized time
