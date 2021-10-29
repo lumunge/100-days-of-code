@@ -7,7 +7,7 @@ A repository to keep track of my roadmap to being a more knowledgeable developer
 [https://www.geeksforgeeks.org/100-days-of-code-a-complete-guide-for-beginners-and-experienced/]
 
 ## MILESTONES
-- [x] `Python Programming language fundamentals`
+- [x] `Programming language fundamentals`
 - [x] `Data Structures and Algorithms`
 - [ ] `Solving Basic Programming Problems`
 - [ ] `Solving Medium Level Programming Problems`
