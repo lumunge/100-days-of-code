@@ -56,7 +56,7 @@ class Solution{
         int maxSubArray(std::vector<int>& nums, int l, int r){
             if(l == r)
                 return nums[l];
-            int m = (l + r) / 2;
+            int m = (l+r) / 2;
             return std::max(std::max(maxSubArray(nums, l, m), maxSubArray(nums, m+1, r)), maxCrossingSum(nums));
         }
 
@@ -78,6 +78,7 @@ class Solution{
 int main(){
     Solution soln;
     std::vector<int> nums = {5,4,-1,7,8};
+    std::cout << soln.maxSubArray(nums, 0, nums.size()-1) << std::endl;
     std::cout << soln.maxSubArrayII(nums) << std::endl;
     return 0;
 }
