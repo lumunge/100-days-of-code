@@ -9,7 +9,7 @@ A repository to keep track of my roadmap to being a more knowledgeable developer
 ## MILESTONES
 - [x] `Programming language fundamentals`
 - [x] `Data Structures and Algorithms`
-- [ ] `Solving Basic Programming Problems`
+- [x] `Solving Basic Programming Problems`
 - [ ] `Solving Medium Level Programming Problems`
 - [ ] `Solve Hard Level Programming Languages`
 - [ ] `System Design`
@@ -67,7 +67,7 @@ A repository to keep track of my roadmap to being a more knowledgeable developer
 |                          |                                                                                                                                    |                                                                          |
 | <ul><li>- [x] </li></ul> | Priority Queues and Heap sort                                                                                                      | https://www.cs.usfca.edu/~galles/visualization/Heap.html                 |
 |                          |                                                                                                                                    |                                                                          |
-|                          |                                                                                                                                    |                                                                          |
+| <ul><li>- [ ] </li></ul> | Data Structure I Study Plan Leet Code                                                                                              |                                                                          |
 |                          |                                                                                                                                    |                                                                          |
 
 
