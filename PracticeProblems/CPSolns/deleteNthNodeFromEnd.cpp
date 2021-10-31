@@ -45,26 +45,23 @@ class LinkedListDeletion{
                 len += 1;
                 temp = temp->next;
             }
-
-            int x = len - n;
+            //index of node to be removed
+            int deleteNodeIndex = len - n;
             ListNode *currNode = head;
             ListNode *prevNode = nullptr;
-
-            while(x > 0){
+            int i = 0;
+            while(i < deleteNodeIndex){
                 prevNode = currNode;
                 currNode = currNode->next;
-                x -= 1;
+                i++;
             }
 
-            if(!prevNode){
-                temp = currNode;
-                currNode = currNode->next;
-                delete temp;
-                head = currNode;
-            }else{
+            if(currNode == head){
+                head = head->next;
+            }else if(prevNode){
                 prevNode->next = currNode->next;
-                delete currNode;
             }
+            delete currNode;
             return head;
         }
         
