@@ -50,7 +50,7 @@ class LinkedListReversal{
         //reversing part of linked list
         ListNode* reversePart(ListNode* head, int m, int n){
             // single element in selected part
-            if(m == n)
+            if(m == n || m > n)
                 return head;
             
             // Initialize pointers
@@ -92,7 +92,7 @@ class LinkedListReversal{
 
         ListNode* reversePartII(ListNode* head, int m, int n){
             //start cannot be smaller than end position
-            if(m > n)
+            if(m == n || m > n)
                 return head;
             
             ListNode* prevNode = NULL;
