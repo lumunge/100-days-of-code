@@ -32,18 +32,14 @@ class Solution{
             unordered_map<char, int> mmap;
             int n = ransomNote.length();
             int m = magazine.length();
-            
             if(n > m)
                 return false;
-
             for(int i = 0; i < n; i++){
                 rmap[ransomNote[i]]++;
             }
-
             for(int i = 0; i < m; i++){
                 mmap[magazine[i]]++;
             }
-            
             for(int i = 0; i < n; i++){
                 if(rmap[ransomNote[i]] > mmap[ransomNote[i]])
                     return false;
