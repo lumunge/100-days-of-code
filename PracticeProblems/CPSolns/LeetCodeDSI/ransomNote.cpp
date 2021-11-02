@@ -25,33 +25,37 @@ using std::endl;
  * greater, return false, otherwise true.
  */
 
-bool canConstruct(string ransomNote, string magazine){
-    unordered_map<char, int> rmap;
-    unordered_map<char, int> mmap;
-    int n = ransomNote.length();
-    int m = magazine.length();
-    
-    if(n > m)
-        return false;
+class Solution{
+    public:
+        bool canConstruct(string ransomNote, string magazine){
+            unordered_map<char, int> rmap;
+            unordered_map<char, int> mmap;
+            int n = ransomNote.length();
+            int m = magazine.length();
+            
+            if(n > m)
+                return false;
 
-    for(int i = 0; i < n; i++){
-        rmap[ransomNote[i]]++;
-    }
+            for(int i = 0; i < n; i++){
+                rmap[ransomNote[i]]++;
+            }
 
-    for(int i = 0; i < m; i++){
-        mmap[magazine[i]]++;
-    }
-    
-    for(int i = 0; i < n; i++){
-        if(rmap[ransomNote[i]] > mmap[ransomNote[i]])
-            return false;
-    }
-    return true;
-}
+            for(int i = 0; i < m; i++){
+                mmap[magazine[i]]++;
+            }
+            
+            for(int i = 0; i < n; i++){
+                if(rmap[ransomNote[i]] > mmap[ransomNote[i]])
+                    return false;
+            }
+            return true;
+        }
+};
 
 int main(){
+    Solution soln;
     string ran = "aa";
     string mag = "ab";
-    cout << canConstruct(ran, mag) << endl; 
+    cout << soln.canConstruct(ran, mag) << endl; 
     return 0;
 }
