@@ -1,4 +1,5 @@
 #include<iostream>
+#include "../../../Datastructures/LinkedList/linkedList.cpp"
 
 using std::cout;
 using std::endl;
@@ -22,16 +23,11 @@ using std::endl;
  * Finally return the previous node
  */
 
-struct ListNode{
-    int data;
-    ListNode *next;
-};
-
 class Solution {
     public:
-        ListNode* reverseList(ListNode* head){
-            ListNode *prevNode = NULL, *next = NULL;
-            ListNode* current = head;
+        Node* reverseList(Node* head){
+            Node *prevNode = NULL, *next = NULL;
+            Node* current = head;
             while(current){
                 next = current->next;
                 current->next = prevNode;
@@ -40,39 +36,16 @@ class Solution {
             }
             return prevNode;
         }
-        //push to end of list
-        void append(ListNode **head, int newData){
-            ListNode *newNode = new ListNode();
-            newNode->data = newData;
-            newNode->next = NULL;
-            ListNode *last = *head;
-            if(*head == NULL){
-                *head = newNode;
-                return;
-            }
-            while(last->next != NULL){
-                last = last->next;
-            }
-            last->next = newNode;
-            return;
-        }
-        //print linked list
-        void printList(ListNode* head){
-            while(head != NULL){
-                cout << head->data << " ";
-                head = head->next;
-            }
-            cout << endl;
-        }
 };
 
 int main(){
+    LinkedList ll;
     Solution soln;
-    ListNode *head = NULL;
-    for(int i = 1; i <= 7; i++)
-        soln.append(&head, i);
-    soln.printList(head);
-    ListNode *reversedHead = soln.reverseList(head);
-    soln.printList(reversedHead);
+    Node *head = NULL;
+    for(int i = 1; i < 7; i++)
+        ll.append(&head, i);
+    ll.printList(head);
+    Node *reversedHead = soln.reverseList(head);
+    ll.printList(reversedHead);
     return 0;
 }
