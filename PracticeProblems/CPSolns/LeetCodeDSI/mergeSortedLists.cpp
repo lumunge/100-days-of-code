@@ -13,7 +13,7 @@ using std::endl;
  *        l2Head = [1, 3, 4]
  * Output: [1, 2, 2, 3, 4, 4]
  *
- * Approach 1: in-place merging
+ * Approach 1: in-place merging. O(n) time, O(1) space
  * 1. If either list is empty return the other.
  * 2. Start merging procedure with list which has a lesser head node.
  * 3. If list has one node join make head point to second list.
