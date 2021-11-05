@@ -1,4 +1,5 @@
 #include<iostream>
+#include "../../../Datastructures/LinkedList/linkedList.cpp"
 
 using std::cout;
 using std::endl;
@@ -20,17 +21,12 @@ using std::endl;
  * return head.
  */
 
-struct ListNode{
-    int data;
-    ListNode *next;
-};
-
 class Solution{
     public:
-        ListNode* deleteNode(ListNode *head, int key){
-            ListNode *tempHead = head;
-            ListNode *iter = head;
-            ListNode *prev = head;
+        Node* deleteNode(Node *head, int key){
+            Node *tempHead = head;
+            Node *iter = head;
+            Node *prev = head;
             
             while(iter != NULL){
                 if(iter->data == key){
@@ -53,35 +49,19 @@ class Solution{
             }
             return tempHead;
         }
-        //push to front of linked list
-        void push(ListNode **head, int newData){
-            ListNode *newNode = new ListNode();
-            newNode->data = newData;
-            newNode->next = *head;
-            *head = newNode;
-        }
-        //print linked list elements
-        void printList(ListNode *head){
-            while(head != NULL){
-                cout << head->data << " ";
-                head = head->next;
-            }
-            cout << endl;
-        }
-
-
 };
 
 int main(){
     Solution soln;
-    ListNode *head = NULL;
+    LinkedList ll;
+    Node *head = NULL;
     int arr[] = {1,2,6,3,4,5,6};
     int n = sizeof(arr) / sizeof(arr[0]);
-    for(int i = 0; i < n; i++)
-        soln.push(&head, arr[i]);
+    for(auto i:arr)
+        ll.push(&head, i);
 
-    soln.printList(head);
-    ListNode *newHead = soln.deleteNode(head, 6);
-    soln.printList(newHead);
+    ll.printList(head);
+    Node *newHead = soln.deleteNode(head, 6);
+    ll.printList(newHead);
     return 0;
 }
