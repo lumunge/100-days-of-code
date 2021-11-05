@@ -17,6 +17,11 @@ using std::unordered_map;
  * 2. Each column must contain digits 1-9 without repetition. 
  * 3. Each of the 9 3X3 sub-boxes of grid must contain digits 1-9 without repetition.
  * 
+ * Approach:
+ * Use a hashmap, 
+ * Loop through the matrix and insert elements to hashmap
+ * If element element to be inserted is found in the matrix row, column or box,
+ * return false else return true.
  */
 
 class Solution {
