@@ -10,34 +10,38 @@ public:
 class LinkedList{
 public:
     //Helper function to print list
-    void printList(Node* n){
-        while(n != NULL){
-            cout << n->data << " ";
-            n = n->next;
+    void printList(Node *head){
+        while(head != NULL){
+            cout << head->data << " ";
+            head = head->next;
         }
         cout << endl;
     }
     //Insert at the begining of list
-    void push(Node** head, int newData){
+    void push(Node **head, int newData){
         Node* newNode = new Node();
         newNode->data = newData;
         newNode->next = *head;
         *head = newNode;
     }
     //Append to end of list
-    void append(Node** head, int newData){
-        Node* newNode = new Node();
-        Node *last = *head;
+    void append(Node **head, int newData){
+        Node *newNode = new Node();
         newNode->data = newData;
         newNode->next = NULL;
-        if(*head == NULL)
+        Node *last = *head;
+        if(*head == NULL){
             *head = newNode;
-        while(last->next != NULL)
+            return;
+        }
+        while(last->next != NULL){
             last = last->next;
+        }
         last->next = newNode;
+        return;
     }
     //Insert Before a Node in list
-    void insertBefore(Node* prevNode, int newData){
+    void insertBefore(Node *prevNode, int newData){
         if(prevNode == NULL)
             return;
         Node* newNode = new Node();
