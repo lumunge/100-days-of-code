@@ -15,11 +15,11 @@ using std::endl;
  * PostOrder(left, right, root)
  *
  * Sample:
- * Input: root = [1, 2, 3, 4, 5, null, null]
- * Output: preOrder = [1, 2, 4, 5, 3]
- *         inOrder = [4, 2, 5, 1, 3]
- *         postOrder = [4, 5, 2, 3, 1]
- *
+ * Input: root = [1, 2, 3, 4, 5, null, null]                1
+ * Output: preOrder = [1, 2, 4, 5, 3]                      /  \
+ *         inOrder = [4, 2, 5, 1, 3]                      2    3
+ *         postOrder = [4, 5, 2, 3, 1]                   / \
+ *                                                      4   5
  * Approach: preOrder(root, left, right)
  * Initialize result vector to hold result
  * Initialize a stack that can hold a tree node
