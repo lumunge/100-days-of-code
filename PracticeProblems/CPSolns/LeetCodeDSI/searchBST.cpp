@@ -1,6 +1,5 @@
 #include<iostream>
 #include "./treeStructure.cpp"
-#include "./dfTreeTraversal.cpp"
 
 using std::cout;
 using std::endl;
@@ -49,24 +48,3 @@ class Solution{
             return root;
         }
 };
-
-int main(){
-    Solution soln;
-    TraverseTree traverse;
-    TreeNode* root = newNode(4);
-    root->left = newNode(2);
-    root->right = newNode(7);
-    root->left->left = newNode(1);
-    root->left->right = newNode(3);
-    TreeNode* resRoot = soln.searchBstRec(root, 2);
-    vector<int> resRec = traverse.preOrder(resRoot);
-    traverse.printArr(resRec);
-    return 0;   
-}
-
-
-
-
-
-
-
