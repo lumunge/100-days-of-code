@@ -1,6 +1,7 @@
 #include<iostream>
 #include<stack>
 #include<vector>
+#include "./treeStructure.cpp"
 
 using std::stack;
 using std::vector;
@@ -63,16 +64,6 @@ using std::endl;
  * Finally push elements from stack2 to result vector in order.
  * return result vector
  */
-
-struct TreeNode{
-    int data;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int data){
-        this->data = data;
-        left, right = NULL;
-    }
-};
 
 class TraverseTree{
     public:
@@ -151,11 +142,11 @@ class TraverseTree{
 
         void run(){
             TraverseTree traverse;
-            TreeNode* root = new TreeNode(1);
-            root->left = new TreeNode(2);
-            root->right = new TreeNode(3);
-            root->left->left = new TreeNode(4);
-            root->left->right = new TreeNode(5);
+            TreeNode* root = newNode(1);
+            root->left = newNode(2);
+            root->right = newNode(3);
+            root->left->left = newNode(4);
+            root->left->right = newNode(5);
             vector<int> preOrder = traverse.preOrder(root);
             vector<int> inOrder = traverse.inOrder(root);
             vector<int> postOrder = traverse.postOrder(root);
@@ -167,9 +158,10 @@ class TraverseTree{
             traverse.printArr(postOrder);
         }
 };
-
+/*
 int main(){
     TraverseTree traverse;
     traverse.run();
     return 0;
 }
+*/

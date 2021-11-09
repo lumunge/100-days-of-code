@@ -9,3 +9,8 @@ struct TreeNode{
         left, right = NULL;
     }
 };
+
+TreeNode* newNode(int data){
+    TreeNode* temp = new TreeNode(data);
+    return temp;
+}
