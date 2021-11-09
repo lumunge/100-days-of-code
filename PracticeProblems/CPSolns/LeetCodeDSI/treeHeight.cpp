@@ -1,5 +1,6 @@
 #include<iostream>
 #include<queue>
+#include "./treeStructure.cpp"
 
 using std::queue;
 using std::max;
@@ -19,15 +20,6 @@ using std::endl;
  * height is increased by one.
  * Return height.
  */
-
-struct TreeNode{
-    int data;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int data){
-        left, right = NULL;
-    }
-};
 
 class Solution{
     public:
