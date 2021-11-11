@@ -59,7 +59,12 @@ A repository to keep track of my roadmap to being a more knowledgeable developer
 |                          |                                                                                                                                    |                                                                          |
 | <ul><li>- [x] </li></ul> | Priority Queues and Heap sort                                                                                                      | https://www.cs.usfca.edu/~galles/visualization/Heap.html                 |
 |                          |                                                                                                                                    |                                                                          |
-| <ul><li>- [ ] </li></ul> | Data Structure I Study Plan Leet Code                                                                                              |                                                                          |
+| <ul><li>- [ ] </li></ul> | Data Structure I Study Plan Leet Code                                                                                              | https://leetcode.com/study-plan/data-structure/?progress=oftw69e         |
+|                          |                                                                                                                                    |                                                                          |
+| <ul><li>- [ ] </li></ul> | Graph algorithms                                                                                                                   | https://www.cs.usfca.edu/~galles/visualization/DFS.html                  |
+|                          |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    |                                                                          |
 |                          |                                                                                                                                    |                                                                          |
 
 
