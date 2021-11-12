@@ -10,7 +10,7 @@
  * Approach:
  * 1. Initialize a map and a result vector.
  * 2. Go through the input vector elements.
- * 3. Do an if check, if the difference between target and vector element doesnt exist in
+ * 3. Do an if check, if the difference between target and vector element exists in
  *    map, append the index and map[difference] to result vector.
  *    Otherwise insert the vector element key with its value as index to map.
  * 4. Return result vector.
