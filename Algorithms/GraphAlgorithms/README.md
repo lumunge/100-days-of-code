@@ -5,6 +5,29 @@
     -> Social Networks
     -> Configuration spaces
 
+
+#### Exploring graphs.
+- Figuring out whether or not one vertex of a grph is reachable from another.
+- Applications:
+    -> Finding routes on maps.
+    -> Ensuring connectivity, road connectivity
+    -> Solving puzzles and mazes
+
+- Path -> sequence of vertices such that each vertex is connected to the next by an edge
+          of the graph
+- Input: Graph G
+  Output: Collection of vertices v of G so there is a path from s to v.
+
+- PSUDOCODE:
+    Components(s):
+        DiscoveredNodes <- {s}
+        while there are undiscovered nodes leaving edge e
+            add vertex at the other end and add it to discoveredNodes
+        return discoveredNodes
+
+- It is required to keep track of visited vertices.
+- An order of exploring edges is required.
+
 #### Connected Compoenents.
 -  Connected compoenents whereby v and w vertices are reachable from each other.
 - Proof of equivalence.
