@@ -1,6 +1,6 @@
 # 100 DAYS OF CODE
 
-A repository to keep track of my roadmap to being a more knowledgeable developer
+A repository to keep track of my roadmap to being a better programmer.
 
 # My inspiration comes from this guide:
 
