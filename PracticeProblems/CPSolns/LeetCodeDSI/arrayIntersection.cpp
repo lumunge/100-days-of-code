@@ -24,8 +24,8 @@ using std::endl;
  * Approach 1: 
  * Sort both arrays
  * Use loops to compare elements in each, if nums1 element is less than nums2 element, increment
- * nums1 index, if less increment nums2 index, otherwise they are equal, place one of the element at 
- * the front of nums1.
+ * nums1 index, if nums2 element is less increment nums2 index, otherwise they are equal, place 
+ * one of the element at the front of nums1.
  * Return the first portion of nums1 array which will have intersecting elements.
  *
  * Approach 2:
