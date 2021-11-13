@@ -2,7 +2,7 @@
 
 A repository to keep track of my roadmap to being a better programmer.
 
-# My inspiration comes from this guide:
+# Guide:
 
 [https://www.geeksforgeeks.org/100-days-of-code-a-complete-guide-for-beginners-and-experienced/]
 
