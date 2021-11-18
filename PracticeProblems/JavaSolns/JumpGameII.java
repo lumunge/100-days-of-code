@@ -1,4 +1,6 @@
-class TestJava {
+//Leet code 45
+
+class JumpGameII {
     private static Integer[] store;
 
     private static int helper(int[] A, int start) {
