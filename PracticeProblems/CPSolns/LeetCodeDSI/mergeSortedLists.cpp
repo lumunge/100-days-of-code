@@ -32,7 +32,7 @@ class Solution{
         Node* mergeTwoLists(Node *l1, Node *l2){
             //either of lists null
             if(l1 == NULL)
-                return l1;
+                return l2;
             if(l2 == NULL)
                 return l1;
             //start with lesser list head
