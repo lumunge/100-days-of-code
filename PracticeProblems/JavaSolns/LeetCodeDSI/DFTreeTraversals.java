@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Stack;
 
-class DFTreeTraversals{
+public class DFTreeTraversals{
     static TreeNode root;
 
     DFTreeTraversals(int data){
@@ -84,6 +84,13 @@ class DFTreeTraversals{
         }
         return result;
     }
+    
+    static void printList(List<Integer> arr){
+        for(Integer i : arr)
+            System.out.print(i + " ");
+        System.out.println();
+    }
+
     public static void main(String[] args){
         DFTreeTraversals tree = new DFTreeTraversals();
         tree.root = new TreeNode(1);
@@ -95,18 +102,12 @@ class DFTreeTraversals{
         List<Integer> postOrder = postOrder(root);
 
         System.out.println("Pre Order df tree traversal");
-        for(Integer i : preOrder)
-            System.out.print(i + " ");
-        System.out.println();
+        printList(preOrder);
 
         System.out.println("In Order df tree traversal");
-        for(Integer i : inOrder)
-            System.out.print(i + " ");
-        System.out.println();
+        printList(inOrder);
 
         System.out.println("Post Order df tree traversal");
-        for(Integer i : postOrder)
-            System.out.print(i + " ");
-        System.out.println();
+        printList(postOrder);
     }
 }
