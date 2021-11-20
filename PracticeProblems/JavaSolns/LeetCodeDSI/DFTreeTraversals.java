@@ -87,8 +87,8 @@ class DFTreeTraversals{
     public static void main(String[] args){
         DFTreeTraversals tree = new DFTreeTraversals();
         tree.root = new TreeNode(1);
-        tree.root.right = new TreeNode(2);
-        tree.root.right.left = new TreeNode(3);
+        root.right = new TreeNode(2);
+        root.right.left = new TreeNode(3);
         
         List<Integer> preOrder = preOrder(root);
         List<Integer> inOrder = inOrder(root);

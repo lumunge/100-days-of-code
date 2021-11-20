@@ -27,15 +27,13 @@ class InvertBinTree{
     public static void main(String[] args){
         InvertBinTree tree = new InvertBinTree();
         tree.root = new TreeNode(4);
-        tree.root.left = new TreeNode(2);
-        tree.root.right = new TreeNode(7);
-        tree.root.left.left = new TreeNode(1);
-        tree.root.left.right = new TreeNode(3);
-        tree.root.right.left = new TreeNode(6);
-        tree.root.right.right = new TreeNode(9);
-        //old tree = [4, 2, 7, 1, 3, 6, 9]
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(7);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(9);
         LevelOrderTraversal lOrder = new LevelOrderTraversal(); 
-        //root = invertTree(root);
         List<List<Integer>> treeList = lOrder.levelOrder(root);
         System.out.println("Before Inversion");
         lOrder.printList(treeList);

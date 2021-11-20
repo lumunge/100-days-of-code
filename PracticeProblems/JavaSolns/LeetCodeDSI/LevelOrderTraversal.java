@@ -50,10 +50,10 @@ public class LevelOrderTraversal{
     public static void main(String[] args){
         LevelOrderTraversal tree = new LevelOrderTraversal();
         tree.root = new TreeNode(3);
-        tree.root.left = new TreeNode(9);
-        tree.root.right = new TreeNode(20);
-        tree.root.right.left = new TreeNode(15);
-        tree.root.right.right = new TreeNode(7);
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(20);
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
 
         List<List<Integer>> levelOrder = levelOrder(root);
         printList(levelOrder);
