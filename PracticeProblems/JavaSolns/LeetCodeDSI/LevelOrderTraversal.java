@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.LinkedList;
 
-class LevelOrderTraversal{
+public class LevelOrderTraversal{
 
     static TreeNode root;
 
