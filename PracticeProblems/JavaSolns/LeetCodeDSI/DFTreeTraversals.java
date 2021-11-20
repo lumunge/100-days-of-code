@@ -5,15 +5,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Stack;
 
-class TreeNode{
-    int data;
-    TreeNode left, right;
-    public TreeNode(int d){
-        data = d;
-        left = right = null;
-    }
-}
-
 class DFTreeTraversals{
     static TreeNode root;
 

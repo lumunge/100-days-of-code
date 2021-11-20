@@ -6,16 +6,6 @@ import java.util.List;
 import java.util.Queue;
 import java.util.LinkedList;
 
-class TreeNode{
-    int data;
-    TreeNode left, right;
-    public TreeNode(int d){
-        data = d;
-        TreeNode left = right = null;
-    }
-}
-
-
 class LevelOrderTraversal{
 
     static TreeNode root;
