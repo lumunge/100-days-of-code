@@ -1,5 +1,5 @@
 #include<iostream>
-//#include "./treeStructure.cpp"
+#include "./treeStructure.cpp"
 #include<vector>
 #include<queue>
 
@@ -27,6 +27,8 @@ using std::endl;
 class TraverseTree{
     public:
         vector<vector<int>> levelOrder(TreeNode* root){
+            if(!root)
+                return {{}};
             vector<vector<int>> result;
             queue<TreeNode*> q;
             q.push(root);
@@ -56,7 +58,7 @@ class TraverseTree{
 };
 /*
 int main(){
-    Solution soln;
+    TraverseTree soln;
     TreeNode* root = newNode(3);
     root->left = newNode(9);
     root->right = newNode(20);
