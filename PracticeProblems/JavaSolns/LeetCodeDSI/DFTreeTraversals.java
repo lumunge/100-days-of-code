@@ -14,13 +14,13 @@ class TreeNode{
     }
 }
 
-class DFTreeTraversal{
+class DFTreeTraversals{
     static TreeNode root;
 
-    DFTreeTraversal(int data){
+    DFTreeTraversals(int data){
         root = new TreeNode(data);
     }
-    DFTreeTraversal(){
+    DFTreeTraversals(){
         root = null;
     }
 
@@ -94,7 +94,7 @@ class DFTreeTraversal{
         return result;
     }
     public static void main(String[] args){
-        DFTreeTraversal tree = new DFTreeTraversal();
+        DFTreeTraversals tree = new DFTreeTraversals();
         tree.root = new TreeNode(1);
         tree.root.right = new TreeNode(2);
         tree.root.right.left = new TreeNode(3);
@@ -119,7 +119,3 @@ class DFTreeTraversal{
         System.out.println();
     }
 }
-
-
-
-
