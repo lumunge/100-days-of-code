@@ -1,3 +1,5 @@
+//Given a stack remove the middle element
+
 #include<iostream>
 #include<stack>
 
