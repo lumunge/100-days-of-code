@@ -11,24 +11,16 @@ class RemoveMid{
     public:
         //iterative approach
         void removeMidIter(queue<int> &q){
-            //temporary queue
-            queue<int> temp;
             int n = q.size(), curr = 0;
             int x = ((n % 2) == 0) ? (n/2-1) : (n/2);
             //pop from main queue and push to temp queue except where curr = n/2
-            while(!q.empty()){
+            while(curr != n){
                 int i = q.front();
                 q.pop();
                 if(curr != x){
-                    temp.push(i);
+                    q.push(i);
                 }
                 curr += 1;
-            }
-            //pop from temp and push to main queue, no mid element
-            while(!temp.empty()){
-                int t = temp.front();
-                q.push(t);
-                temp.pop();
             }
         }
 
@@ -66,7 +58,7 @@ int main(){
     RemoveMid rm;
     queue<int> q;
     
-    for(int i = 1; i <= 8; i++)
+    for(int i = 1; i <= 7; i++)
         q.push(i);
 
     rm.printQueue(q);
