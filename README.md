@@ -1,6 +1,6 @@
 # 100 DAYS OF CODE
 
-A repository to keep track of my roadmap to being a better programmer.
+A repository to keep track of my roadmap to being a competent programmer.
 
 # Guide:
 
@@ -10,8 +10,8 @@ A repository to keep track of my roadmap to being a better programmer.
 - [x] `Programming language fundamentals`
 - [x] `Data Structures and Algorithms`
 - [x] `Solving Basic Programming Problems`
-- [ ] `Solving Medium Level Programming Problems`
-- [ ] `Solve Hard Level Programming Languages`
+- [x] `Solving Medium Level Programming Problems`
+- [ ] `Solve Hard Level Programming Problems`
 - [ ] `System Design`
 - [ ] `Operating Systems & Database Management Systems`
 - [ ] `Object Oriented Design`
@@ -59,7 +59,7 @@ A repository to keep track of my roadmap to being a better programmer.
 |                          |                                                                                                                                    |                                                                          |
 | <ul><li>- [x] </li></ul> | Priority Queues and Heap sort                                                                                                      | https://www.cs.usfca.edu/~galles/visualization/Heap.html                 |
 |                          |                                                                                                                                    |                                                                          |
-| <ul><li>- [ ] </li></ul> | Data Structure I Study Plan Leet Code                                                                                              | https://leetcode.com/study-plan/data-structure/?progress=oftw69e         |
+| <ul><li>- [x] </li></ul> | Data Structure I Study Plan Leet Code                                                                                              | https://leetcode.com/study-plan/data-structure/?progress=oftw69e         |
 |                          |                                                                                                                                    |                                                                          |
 | <ul><li>- [ ] </li></ul> | Graph algorithms                                                                                                                   | https://www.cs.usfca.edu/~galles/visualization/DFS.html                  |
 |                          |                                                                                                                                    |                                                                          |
