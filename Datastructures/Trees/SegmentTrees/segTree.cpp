@@ -80,11 +80,14 @@ class RangeSum{
 
 int main(){
     RangeSum rs;
-    int arr[] = {1, 3, 5, 7, 9, 11};
+    int arr[] = {90, 1, 34, 21, 78, 11, 34, 10};
     int n = sizeof(arr) / sizeof(arr[0]);
     int *tree = rs.buildTree(arr, n);
-    cout << rs.getSum(tree, n, 1, 3) << endl;
+    //sum range between 3rd and 6th index
+    cout << rs.getSum(tree, n, 3, 6) << endl;
+    //replace the 1st index element with 10
     rs.update(arr, tree, n, 1, 10);
+    //sum range between 1 and 3
     cout << rs.getSum(tree, n, 1, 3) << endl;
     return 0;
 }
