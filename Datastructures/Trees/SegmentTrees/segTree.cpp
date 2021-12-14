@@ -4,19 +4,27 @@
 using std::cout;
 using std::endl;
 
+/*
+ * PROBLEM STATEMENT:
+ * Given an array arr[0,...,n-1] write a data structure that can perform the operations optimally
+ * 1. Find sum of elements from index l to r where 0 <= l <= r <= n-1
+ * 2. Update value of specified element in the array
+ * All this without using loops or assigning an element ie arr[i] = element;
+ */
+
 class RangeSum{
     private:
         int getMid(int l, int r){
-            return l + (l-r) / 2;
+            return l + (r - l) / 2;
         }
 
         int buildTreeUtil(int arr[], int *tree, int stSg, int edSg, int currIdx){
             if(stSg == edSg){
-                tree[stSg] = arr[edSg];
+                tree[currIdx] = arr[stSg];
                 return arr[stSg];
             }
             int mid = getMid(stSg, edSg);
-            tree[currIdx] = buildTreeUtil(arr, tree, stSg, mid, currIdx*2+1) + buildTreeUtil(arr, tree, mid+1, edSg, currIdx*2+2);
+            tree[currIdx] = buildTreeUtil(arr, tree, stSg, mid, 2*currIdx+1) + buildTreeUtil(arr, tree, mid+1, edSg, 2*currIdx+2);
             return tree[currIdx];
         }
 
@@ -32,7 +40,7 @@ class RangeSum{
         void updateValUtil(int *tree, int stSg, int edSg, int i, int x, int currIdx){
             if(i < stSg || i > edSg)
                 return;
-            tree[stSg] = tree[currIdx] + x;
+            tree[currIdx] = tree[currIdx] + x;
             if(stSg != edSg){
                 int mid = getMid(stSg, edSg);
                 updateValUtil(tree, stSg, mid, i, x, 2*currIdx+1);
@@ -69,3 +77,14 @@ class RangeSum{
             return tree;
         }
 };
+
+int main(){
+    RangeSum rs;
+    int arr[] = {1, 3, 5, 7, 9, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int *tree = rs.buildTree(arr, n);
+    cout << rs.getSum(tree, n, 1, 3) << endl;
+    rs.update(arr, tree, n, 1, 10);
+    cout << rs.getSum(tree, n, 1, 3) << endl;
+    return 0;
+}
