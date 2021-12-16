@@ -2,6 +2,13 @@
  * PROBLEM STATEMENT:
  * Given two sorted arrays nums2 and nums2 of size m and n, return median of the two.
  * Time complexity should be O(log(m+n))
+ * 
+ * Sample:
+ * Input: nums1 = [1, 3], num2 = [2];
+ * Output: nums3 = [1, 2, 3], median = 2.00000
+ *
+ * Input: num1 = [1, 2], nums2 = [3, 4];
+ * Ouput: nums3 = [1, 2, 3, 4], median = 3+2 = 5/2 = 2.50000
  *
  * Approach.
  * Median is the value separating the higher from the lower values.
