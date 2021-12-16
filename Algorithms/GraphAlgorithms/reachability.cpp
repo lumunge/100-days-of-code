@@ -54,6 +54,7 @@ class ExploreGraph{
             int n, m, u, v, x, y;
             cin >> n >> m;
             vector<vector<int>> vertices(n, vector<int>());
+            //build adj-matrix
             for(int i = 0; i < m; i++){
                 cin >> u >> v;
                 vertices[u-1].push_back(v-1);
