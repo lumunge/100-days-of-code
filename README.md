@@ -62,9 +62,9 @@ A repository to keep track of my roadmap to being a competent programmer.
 | <ul><li>- [x] </li></ul> | Data Structure I Study Plan Leet Code                                                                                              | https://leetcode.com/study-plan/data-structure/?progress=oftw69e         |
 |                          |                                                                                                                                    |                                                                          |
 | <ul><li>- [ ] </li></ul> | Graph algorithms                                                                                                                   | https://www.cs.usfca.edu/~galles/visualization/DFS.html                  |
-|                          |                                                                                                                                    |                                                                          |
-|                          |                                                                                                                                    |                                                                          |
-|                          |                                                                                                                                    |                                                                          |
+|                          |                                                                                                                                    | http://www.cs.usfca.edu/~galles/visualization/TopoSortDFS.html           |
+|                          |                                                                                                                                    | http://www.cs.usfca.edu/~galles/visualization/TopoSortIndegree.html      |
+|                          |                                                                                                                                    | http://www.cs.usfca.edu/~galles/visualization/ConnectedComponent.html    |
 |                          |                                                                                                                                    |                                                                          |
 
 
