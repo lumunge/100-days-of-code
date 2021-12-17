@@ -122,6 +122,119 @@
        being explored, post(v) > post(v), nested case.
     -> Explore v after u is done being explored, post(u) < pre(v), disjoint case.
 
+## Directed Acyclic Graphs.
+- A directed graph is a graph where edges have direction, that is, start and end vertices.
+
+- Applications:
+    -> Followers on social networks
+    -> Tasks dependancies
+    -> Links between webpages
+
+- For directed DFS we follow directed edges only, pre and post orederings can also be
+  computed.
+- A cycle -> A sequence of vertices v1,v2,v3 such that they are also edges of a graph G.
+- If G contains a cycle it cannot be linearly ordered.
+- A graph is a directed acyclic graph iff there are no cycles.
+- *DAG* -> a directed graph without cycles. therefore can be linearly ordered.
+- In a DAG the last vertex should have incoming edges but no outgoing edges.
+- *Source* is a vertex without incoming edges
+- *Sink* is a vertex without outgoing edges.
+
+***Getting a linear ordering***
+* Find sink
+* Place it at the end of the ordering
+* Remove it from the graph
+* Repeat
+
+*Finding a sink*
+- Follow a path as far as possible eventually either we can have a cycle or reach a vertex
+  that cannot be extended(sink).
+
+*PSEUDOCODE*
+LinearOrder(G): --> dfs ordering
+    while G is not empty:
+        Follow path until no extension
+        Find sink v
+        Place v at the end of ordering
+        Remove v from G
+
+O(V^2) time complexity.
+
+*PSEUDOCODE*
+TopologicalSort(G):
+    DFS(G)
+    sort vertices by reverse post order
+
+### Connectivity in directed graphs.
+- Two vertices u, v are connected either is reachable from the other.
+- A directed graph can be partitioned into strongly connected components where two vertices
+  are connected iff they are in the same component.
+- *metagraph* -> shows how strongly connected components are connected to one another.
+- A metagraph is a DAG.
+
+
+### Computing Stongly Connected Components.
+- Input: Directed graph G
+- Output: Strongly connected components.
+
+*PSEUDOCODE*
+NaiveSCC(G):
+    for each vertex v:
+        explore(v) to determine vertices reachable from v
+    for each vertex v:
+        find u reachable from v that is can also reach v
+    return SCCs.
+
+O(|V|^2 + |V||E|) -> not otpimal
+
+**Optimal Algorithm**
+- Find a sink v in SCC
+- Exploring v explore(v) will find vertices reachbale from v
+- This is the strongly connected component of v.
+
+*Finding a sink in a SCC*
+- If C and C' are SCCs with an edge from vertex C to vertex C', the largest post in C is
+  larger than the largest postorder in C'.
+- The vertex with the largest postorder number will be in the source component.
+
+- *Reverse Graph* --> the graph obtained by reversing all edges.
+- Both Graph G and reverse graph have the same SCCs.
+- Source components of reverse graph are the sink componentes of G.
+- Run DFS on reverse graph to find sink component.
+- Take the vertex with the largest post-order number from reverse graph which is in
+  SCC sink of G.
+
+*PSEUDOCODE*
+SCCs(G):
+    run DFS(reverse graph)
+    let v have the largest post number
+    explore(v)
+    vertices found are the first SCCs
+    remove vertex from G and repeat
+
+- DFS is run repeatedely which is not efficient
+
+*Optimizing*
+- Run DFS on reverse graph and record the post-order numbers
+- Largest remaining post number will come from sink compoenent.
+- Explore in descending order of post-numbers marking compoenents as SCCs.
+
+*PSEUDOCODE*
+SCCs(G):
+    DFS(reverse graph)
+    for v in Vertices in reverse postorder
+        if not visited(v):
+            explore(v)
+            mark visited vertices as SCCs
+
+- DFS on reverse graph and graph G
+- O(|V||E|) time complexity.
+
+
+
+
+
+
 
 
 
