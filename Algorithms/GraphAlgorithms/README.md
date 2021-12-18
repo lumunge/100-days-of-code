@@ -19,12 +19,13 @@
   Output: Collection of vertices v of G so there is a path from s to v.
 
 - PSEUDOCODE:
+```
     Components(s):
         DiscoveredNodes <- {s}
         while there are undiscovered nodes leaving edge e
             add vertex at the other end and add it to discoveredNodes
         return discoveredNodes
-
+```
 - It is required to keep track of visited vertices.
 - An order of exploring edges is required.
 
@@ -34,12 +35,13 @@
     - Explore edges using depth first ordering, that is follow a long path and back track when reached a dead end.
         
         PSEUDOCODE:
+        ```
             Explore(v):  (adjacency list graph representation)
                 visited(v) <- true
                 for(v, w) belongs E:
                     if not visited(w):
                         Explore(w)
-
+        ```
 #### Connected Components.
 - Whereby vertices v and w are reachable from each other iff there are in a connected 
   component.
@@ -54,6 +56,7 @@
 - Idea, modify dfs, while traversing the graph to label vertices.
 
 - PSEUDOCODE:
+```
     Explore(v):
         visited(v) <- true
         CCNum(v) <- cc //labelling
@@ -68,7 +71,7 @@
                 if not visited(v)
                     Explore(v)
                     cc <- cc + 1
-
+```
 - Proof of correctness
     -> Each call to Explore will find a new connected component and every vertex 
        in that component.
@@ -79,6 +82,7 @@
 - Modify DFS to keep track of other data for other uses.
 
 - PSEUDOCODE:
+```
     Explore(v):
         visited(v) <- true
         previsit(v)
@@ -86,13 +90,14 @@
             if not visited(w):
                 Explore(w)
         postvisit(v)
-
+```
 - Keeping track of the order of visits.
     * Initialize clock to 1 at the start of the algorithm.
     * Use a clock that ticks for each pre and post vist to and from a vertex, it records
       for each vertex.
 
 - PSEUDOCODE:
+```
     //clock initialized to 1
     previsit(v)
         pre(v) <- clock
@@ -101,7 +106,7 @@
     postvisit(v)
         post(v) <- clock
         clock <- clock + 1
-
+```
 - Previsit and Post visit number give information about the execution of the DFS.
 - For any vertices u, v in the inttervals [pre(v), post(u)] and [pre(v), post(v)] are
   either nested or disjoint which will give information about how dfs traversed the vertices.
@@ -151,19 +156,22 @@
   that cannot be extended(sink).
 
 *PSEUDOCODE*
+```
 LinearOrder(G): --> dfs ordering
     while G is not empty:
         Follow path until no extension
         Find sink v
         Place v at the end of ordering
         Remove v from G
-
+```
 O(V^2) time complexity.
 
 *PSEUDOCODE*
+```
 TopologicalSort(G):
     DFS(G)
     sort vertices by reverse post order
+```
 
 ### Connectivity in directed graphs.
 - Two vertices u, v are connected either is reachable from the other.
@@ -178,12 +186,14 @@ TopologicalSort(G):
 - Output: Strongly connected components.
 
 *PSEUDOCODE*
+```
 NaiveSCC(G):
     for each vertex v:
         explore(v) to determine vertices reachable from v
     for each vertex v:
         find u reachable from v that is can also reach v
     return SCCs.
+```
 
 O(|V|^2 + |V||E|) -> not otpimal
 
@@ -205,13 +215,14 @@ O(|V|^2 + |V||E|) -> not otpimal
   SCC sink of G.
 
 *PSEUDOCODE*
+```
 SCCs(G):
     run DFS(reverse graph)
     let v have the largest post number
     explore(v)
     vertices found are the first SCCs
     remove vertex from G and repeat
-
+```
 - DFS is run repeatedely which is not efficient
 
 *Optimizing*
@@ -220,13 +231,14 @@ SCCs(G):
 - Explore in descending order of post-numbers marking compoenents as SCCs.
 
 *PSEUDOCODE*
+```c++
 SCCs(G):
     DFS(reverse graph)
     for v in Vertices in reverse postorder
         if not visited(v):
             explore(v)
             mark visited vertices as SCCs
-
+```
 - DFS on reverse graph and graph G
 - O(|V||E|) time complexity.
 
