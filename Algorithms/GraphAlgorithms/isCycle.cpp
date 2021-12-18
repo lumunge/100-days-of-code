@@ -61,7 +61,6 @@ class CheckCycle{
             for(int i = 0; i < m; i++){
                 cin >> u >> v;
                 graph[u-1].push_back(v-1); 
-                //graph[v-1].push_back(u-1);
             }
             cout << hasCycle(graph) << endl;
         }
