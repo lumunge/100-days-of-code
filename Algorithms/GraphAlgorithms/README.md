@@ -211,8 +211,7 @@ O(|V|^2 + |V||E|) -> not otpimal
 - Both Graph G and reverse graph have the same SCCs.
 - Source components of reverse graph are the sink componentes of G.
 - Run DFS on reverse graph to find sink component.
-- Take the vertex with the largest post-order number from reverse graph which is in
-  SCC sink of G.
+- The vertex with the largest post-order number from the reverse graph is the sink of a SCC in G.
 
 *PSEUDOCODE*
 ```
