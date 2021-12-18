@@ -1,3 +1,23 @@
+/*
+ * PROBLEM STATEMENT:
+ * Given an array of digits sorted increasingly. Return the number of all positive integer
+ * permutations of the digits that are less than or equal to n.
+ * less than of equal to n.
+ *
+ * Sample:
+ * Input: ["1", "3", "5", "7"], n = 100
+ * Output: 20
+ * Explanation: 1, 3, 5, 7, 11, 13, 15, 17, 31, 33, 35, 37, 51, 53, 55, 57, 71, 73, 75, 77.
+ *
+ * Approach:
+ * Naive:
+ * Generate all permutations less than n and store all permutations less than n.
+ * Return the size of the arraylist which is also the count.
+ *
+ * Optimal Approach(dp)
+ * Maintain a dp array of number of digits given
+ */
+
 import java.util.ArrayList;
 
 class Permutation {
@@ -35,6 +55,29 @@ class Permutation {
         return permutations.size();
     }
 
+    //Optimized Solution
+    static int atMostNGivenDigitSetII(String[] digits, int n){
+        String L = String.valueOf(n);
+        int len = L.length();
+        int dlen = digits.length;
+        int dp[] = new int[len+1];
+        dp[len] = 1;
+        for(int i = len-1; i >= 0; i--){
+            int li = L.charAt(i) - '0';
+            for(String s : digits){
+                if(Integer.valueOf(s) < li){
+                    dp[i] += Math.pow(dlen, len-i-1);
+                else if(Integer.valueOf(s) == li)
+                    dp[i] = dp[i] + dp[i+1];
+            }
+        }
+        for(int i = 1; i < len; i++)
+            dp[0] += Math.pow(dlen, i);
+        return dp[0];
+    }
+
+
+
     public static void main(String[] args){
         String arr[] = {"3", "5"};
         int n = 4;
@@ -42,9 +85,8 @@ class Permutation {
         int n1 = 100;
         String arr2[] = {"1","4","9"};
         int n2 = 1000000000;
-        //run one at a time to avoid collisions with the global array list
-        //System.out.println(atMostNGivenDigitSet(arr, n)); 
-        //System.out.println(atMostNGivenDigitSet(arr1, n1)); 
-        System.out.println(atMostNGivenDigitSet(arr2, n2)); 
+        //System.out.println(atMostNGivenDigitSetII(arr, n)); 
+        System.out.println(atMostNGivenDigitSetII(arr1, n1)); 
+        //System.out.println(atMostNGivenDigitSetII(arr2, n2)); 
     }
 }
