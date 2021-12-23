@@ -33,16 +33,17 @@
 import java.util.Collections;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Stack;
 
 class CourseScheduleII{
-    private static boolean dfs(List<Integer>[] adj, int[] visited, List<Integer> stack, int v){
+    private static boolean dfs(List<Integer>[] adj, int[] visited, Stack<Integer> stack, int v){
         visited[v] = 1;
         for(int u : adj[v]){
             if(visited[u] == 1) return true;
             if(visited[u] == 0 && dfs(adj, visited, stack, u)) return true;
         }
         visited[v] = 2;
-        stack.add(v);
+        stack.push(v);
         return false;
     }
     public static int[] findOrder(int numCourses, int[][] prerequisites) {
@@ -54,16 +55,20 @@ class CourseScheduleII{
             adj[course[1]].add(course[0]);
         
         //Create stack
-        List<Integer> stack = new LinkedList<Integer>();
+        Stack<Integer> stack = new Stack<Integer>();
         int visited[] = new int[numCourses];
         for(int i = 0; i < numCourses; i++){
             if(visited[i] == 0 && dfs(adj, visited, stack, i))
                 return new int[0]; //cycle
         }
-        //reverse stack
-        Collections.reverse(stack);
-        //convert to array
-        int result[] = stack.stream().mapToInt(Integer::intValue).toArray();
+        //push values to result arrray
+        int result[] = new int[stack.size()];
+        int i = 0;
+        while(!stack.empty()){
+            int t = stack.pop();
+            result[i] = t;
+            i++;
+        }
         return result;
     }
     public static void printArr(int arr[]){
