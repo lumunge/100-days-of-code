@@ -19,7 +19,7 @@
  *          result = nextvalue / popped element, to stack
  * Finally add all elements in the stack and return result.
  *
- * Approach:(temporary value)
+ * Approach:(temporary value) O(1) space
  * Keep track of evaluated value thus so far using temp variable,
  * Traverse the string, if the current character is a digit, assign it to current variable
  * curr.
@@ -67,8 +67,30 @@ class BasicCalculator{
     }
     
     //using temp variable
-    //public static int calculateII(String s){
-    //}
+    public static int calculateII(String s){
+        if(s.length() == 0) return 0;
+        String str = s.replaceAll("\\s", "");
+        int l = str.length();
+        int result = 0, curr = 0, temp = 0;
+        char op = '+';
+        for(int i = 0; i < l; i++){
+            if(Character.isDigit(str.charAt(i)))
+                curr = (curr * 10) + (str.charAt(i) - '0');
+            if(!Character.isDigit(str.charAt(i)) || i == l-1){
+                if(op == '+'){
+                    result += temp;
+                    temp = curr;
+                }else if(op == '-'){
+                    result += temp;
+                    temp = -curr;
+                }else if(op == '*') temp *= curr;
+                else if(op == '/') temp /= curr;
+                op = str.charAt(i);
+                curr = 0;
+            }
+        }
+        return result += temp;
+    }
 
     public static void main(String args[]){
         String str1 = "3+2*2";
@@ -77,6 +99,9 @@ class BasicCalculator{
         System.out.println(calculateI(str1));
         System.out.println(calculateI(str2));
         System.out.println(calculateI(str3));
+        System.out.println(calculateII(str1));
+        System.out.println(calculateII(str2));
+        System.out.println(calculateII(str3));
+ 
     }
 }
-
