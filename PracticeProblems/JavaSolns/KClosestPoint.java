@@ -19,23 +19,67 @@
  * Approach:(sort with comparator) O(N * logN) and O(N) space
  * Sort the array with a using the euclidean distance and return the first k elements.
  *  
- * Approach 2: Quick Select Algorithm.
+ * Approach 2: Quick Select Algorithm. O(n) and O(1) time and space
+ * Implement the quick select algorithm which will partially sort the array and return
+ * the first k elements.
  */
 
 import java.util.Arrays;
 
 class KClosestPoint{
+    //eculidean distance
     private static int eDist(int point[]){
         int x = point[0] * point[0];
         int y = point[1] * point[1];
         return x + y;
     }
-
-    public static int[][] closest(int[][] points, int k){
+    
+    //sorting by the eDist and returning the first k elements
+    public static int[][] closestI(int[][] points, int k){
         Arrays.sort(points, (x, y) -> eDist(x) - eDist(y));
         return Arrays.copyOf(points, k);
     }
+
+    //Quick Select
+    //partitioning procedure
+    private static int partition(int[][] points, int l, int r){
+        int[] pivot = points[l + (r-l) / 2];
+        while(l < r){
+            if(eDist(points[l]) >= eDist(pivot)){
+                //swap
+                int[] temp = points[l];
+                points[l] = points[r];
+                points[r] = temp;
+                r--;
+            }else
+                l++;
+        }
+        if(eDist(points[l]) < eDist(pivot))
+            l++;
+        return l;
+    }
+
+    //quick select
+    private static int[][] quickSelect(int points[][], int k){
+        int l = 0, r = points.length - 1;
+        int pivotIdx = points.length;
+        while(pivotIdx != k){
+            pivotIdx = partition(points, l, r);
+            if(pivotIdx < k)
+                l = pivotIdx;
+            else
+                r = pivotIdx - 1;
+        }
+        //Return first k elements of partially sorted array
+        return Arrays.copyOf(points, k);
+    }
+
+    //closest points with quick select
+    public static int[][] closestII(int points[][], int k){
+        return quickSelect(points, k);
+    }
     
+    //print a 2D array
     public static void printArr(int[][] arr){
         for(int i = 0; i < arr.length; i++)
             System.out.println(arr[i][0] + " " + arr[i][1]);
@@ -46,8 +90,24 @@ class KClosestPoint{
         int k = 2;
         int points1[][] = {{1,3},{-2,2}};
         int k1 = 1;
-        printArr(closest(points, k));
+        
+        printArr(closestI(points, k));
         System.out.println();
-        printArr(closest(points1, k1));
+        printArr(closestI(points1, k1));
+        
+        System.out.println("Quick Select");
+        printArr(closestII(points, k));
+        System.out.println();
+        printArr(closestII(points1, k1));
+
     }
 }
+
+
+
+
+
+
+
+
+
