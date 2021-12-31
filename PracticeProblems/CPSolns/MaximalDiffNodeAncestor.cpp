@@ -28,22 +28,33 @@ using std::cout;
 using std::endl;
 
 class MaximalDiffNodeAncestor{
-    int diff = INT_MIN;
-    void dfs(TreeNode *node, TreeNode *minNode, TreeNode *maxNode){
-        if(node == NULL) return;
-        if(node->data > maxNode->data) minNode = node;
-        if(node->data < minNode->data) maxNode = node;
-        diff = max(diff, abs(maxNode->data - minNode->data));
-        dfs(node->left, minNode, maxNode);
-        dfs(node->right, minNode, maxNode);
-    }
-    int maxAncestorDiff(TreeNode *root){
-        if(root == NULL) return 0;
-        dfs(root, root, root);
-        return diff;
-    }
+    private:
+        int diff = INT_MIN;
+        void dfs(TreeNode *node, TreeNode *minNode, TreeNode *maxNode){
+            if(node == NULL) return;
+            if(node->data > maxNode->data) minNode = node;
+            if(node->data < minNode->data) maxNode = node;
+            diff = max(diff, abs(maxNode->data - minNode->data));
+            dfs(node->left, minNode, maxNode);
+            dfs(node->right, minNode, maxNode);
+        }
+    public:
+        int maxAncestorDiff(TreeNode *root){
+            if(root == NULL) return 0;
+            dfs(root, root, root);
+            return diff;
+        }
 };
 
 int main(){
-    cout << "hello" << endl;
+    MaximalDiffNodeAncestor soln;
+    TreeNode *root = new TreeNode(8);
+    root->left = new TreeNode(3);
+    root->right = new TreeNode(10);
+    root->left->left = new TreeNode(1);
+    root->left->right = new TreeNode(6);
+    root->right->right = new TreeNode(14);
+    root->right->right->left = new TreeNode(13);
+
+    cout << soln.maxAncestorDiff(root) << endl;
 }
