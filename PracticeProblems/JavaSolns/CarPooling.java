@@ -57,14 +57,3 @@ class CarPooling{
         System.out.println(pool(trips, 5));
     }
 }
-
-
-
-
-
-
-
-
-
-
-
