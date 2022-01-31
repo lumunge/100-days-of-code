@@ -1,3 +1,5 @@
+// Leetcode 1672
+
 class RichestCustomer{
     static int maxWealth(int[][] accounts){
         int max = Integer.MIN_VALUE;
