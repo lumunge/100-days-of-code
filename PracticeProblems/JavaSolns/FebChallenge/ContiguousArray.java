@@ -1,5 +1,8 @@
 // Leetcode 525 -  contiguous array
 
+import java.util.Map;
+import java.util.HashMap;
+
 class ContiguousArray{
     // brute force - quadractic
     static int findMaxLenI(int[] nums){
@@ -16,10 +19,23 @@ class ContiguousArray{
         return maxLen;
     }
 
+    // optimal - linear
+    static int findMaxLenII(int[] nums){
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        int maxLen = 0, count = 0;
+        for(int i = 0; i < nums.length; i++){
+            count += (nums[i] == 1 ? 1 : -1);
+            if(map.containsKey(count)) maxLen = Math.max(maxLen, i - map.get(count));
+            else map.put(count, i);
+        }
+        return maxLen;
+    }
+
     public static void main(String[] args){
         int arr[] = {0, 1};
         int arr1[] = {0, 1, 0};
-        System.out.println(findMaxLenI(arr));
-        System.out.println(findMaxLenI(arr1));
+        System.out.println(findMaxLenII(arr));
+        System.out.println(findMaxLenII(arr1));
     }
 }
