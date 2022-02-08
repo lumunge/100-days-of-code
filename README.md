@@ -13,7 +13,7 @@ A repository to keep track of my roadmap to being a competent programmer.
 - [x] `Solving Medium Level Programming Problems`
 - [ ] `Solve Hard Level Programming Problems`
 - [ ] `System Design`
-- [ ] `Operating Systems & Database Management Systems`
+- [x] `Operating Systems & Database Management Systems`
 - [ ] `Object Oriented Design`
 
 
