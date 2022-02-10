@@ -24,7 +24,9 @@ class SubArraySumK{
         for(int i = 0; i < n; i++){
             sum += nums[i];
             int x = sum - k;
+            // if cumulative sum already exists
             if(hmap.containsKey(x))
+                // add number of its occurrences
                 count += hmap.get(x);
             hmap.put(sum, hmap.getOrDefault(sum, 0) + 1);
         }
