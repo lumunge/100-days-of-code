@@ -18,9 +18,26 @@ class Subsets{
         }
         return res;
     }
+    
+    // lexographic subsets
+    static List<List<Integer>> subsetsII(int[] nums){
+        List<List<Integer>> res = new ArrayList();
+        int n = nums.length;
+
+        for(int i = (int)Math.pow(2, n); i < (int)Math.pow(2, n+1); i++){
+            String mask = Integer.toBinaryString(i).substring(1);
+            
+            List<Integer> curr = new ArrayList();
+            for(int j = 0; j < n; j++)
+                if(mask.charAt(j) == '1') curr.add(nums[j]);
+
+            res.add(curr);
+        }
+        return res;
+    }
 
     public static void main(String[] args){
         int[] nums = {1, 2, 3};
-        System.out.println(subsetsI(nums));
+        System.out.println(subsetsII(nums));
     }
 }
