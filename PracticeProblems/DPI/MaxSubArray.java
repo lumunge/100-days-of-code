@@ -4,7 +4,7 @@ class MaxSubArray{
 	static int maxSubArray(int[] nums){
 	    int max1 = 0, max2 = Integer.MIN_VALUE;
             for(int i = 0; i < nums.length; i++){
-		        max1 += nums[i];
+		max1 += nums[i];
                 if(max1 > max2) max2 = max1;
                 if(max1 < 0) max1 = 0;
             }
