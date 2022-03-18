@@ -41,6 +41,4 @@ int main(){
     vector<int> n1 = {1, 2};
     cout << soln.maxScoreI(n) << endl;
     cout << soln.maxScoreI(n1) << endl;
-    cout << soln.maxScoreII(n) << endl;
-    cout << soln.maxScoreII(n1) << endl;
 }
