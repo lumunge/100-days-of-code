@@ -12,25 +12,26 @@ class Solution{
         string longest(string str){
             int n = str.length();
             
-            // create and fill dp array with true
+            // create and fill dp table with 0s
             bool dp[n][n];
             memset(dp, 0, sizeof(dp));
-             // fill dp array with true
+
+            // fill diagonal for single characters - always palindrome
             for(int i = 0; i < n; i++)
                 dp[i][i] = true;
             
             // left and right pointers
             int l = 0, r = 1; // single char string is palindrome
-            
-            // check any two adjacent characters form palindrome
+            // fill diagonal for two adjacent characters if palindrome
             for(int i = 0; i < n-1; i++){
-                // if first two characters are equal
+                // if first two characters are palindrome
                 if(str[i] == str[i+1]){
                     dp[i][i+1] = true;
                     l = i;
                     r = 2;
                 }
             }
+
             // start from third character
             for(int i = 3; i <= n; i++){
                 for(int j = 0; j < n - i + 1; j++){
