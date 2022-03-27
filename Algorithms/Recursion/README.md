@@ -10,6 +10,6 @@ Rules:
 => The recursive calls must eventually reach a base case that is solved without further recursion
 
 Improve Efficiency:
-Memoization => Store results of particular function in memo(lookup table) and return
-                result when the function is called again.
+We eliminate repeated work by storing results to subproblems:
+Dynamic programming: Memoization and Tabulation
 
