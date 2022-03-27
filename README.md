@@ -9,24 +9,22 @@ A repository to keep track of my roadmap to being a competent programmer.
 ## MILESTONES
 - [x] `Programming language fundamentals`
 - [x] `Data Structures and Algorithms`
-- [x] `Solving Basic Programming Problems`
-- [x] `Solving Medium Level Programming Problems`
-- [ ] `Solve Hard Level Programming Problems`
+- [x] `Basic Programming Problems`
+- [x] `Medium Level Programming Problems`
+- [ ] `Hard Level Programming Problems`
 - [ ] `System Design`
-- [x] `Operating Systems & Database Management Systems`
+- [x] `Operating Systems(Linux) & Database Management Systems`
 - [ ] `Object Oriented Design`
 
 
 | Status                   |                                                           Topics Covered                                                           |  Resources
 | ------------------------ | :--------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------: |
-| <ul><li>- [x] </li></ul> | Python language and its applications, Python basics(iterations, loops and control statements switch case, operators, conditionals) |                                                                          |
-|                          | Control Structures(loops, efficient iterations range, xrange, switch case --> dictionary mapping)                                  |                                                                          |
+| <ul><li>- [x] </li></ul> | C++, Java, Python programming languages basics(iterations, loops and control statements switch case, operators, conditionals) |                                                                          |
 |                          | Strings, Regex and Pattern Matching                                                                                                |                                                                          |
-|                          | Classes, methods, Functions, Modules                                                                                               |                                                                          |
-|                          | OOP, inheritance, constructors, methods, class and static methods and variables, Garbage Collection, lambda functions              |                                                                          |
-|                          | Python Lists & operations, list comprehensions, range(x,y,z)                                                                       |                                                                          |
-|                          | Queues, Deques, Stacks, tuples                                                                                                     |                                                                          |
-|                          | File Handling, Python Directory                                                                                                    |                                                                          |
+|                          | Classes, methods, Functions, Modules - built-in help                                                                                               |                                                                          |
+|                          | OOP, inheritance, constructors, methods, class and static methods and variables, private, punlic, protected, Garbage Collection, lambda functions              |                                                                          |
+|                          | Data structures: Queues, Deques, Stacks, Arrays, Trees, Linked lists, Dictionaries/Hash maps                                                                                                     |                                                                          |
+|                          | File Handling                                                                                                    |                                                                          |
 |                          | Exception Handling                                                                                                                 |                                                                          |
 |                          |                                                                                                                                    |                                                                          |
 | <ul><li>- [x] </li></ul> | Mathematical Thinking in Computer Science (Mathematical Induction, Proof Theory, Discrete Mathematics, Mathematical Logic)         |                                                                          |
