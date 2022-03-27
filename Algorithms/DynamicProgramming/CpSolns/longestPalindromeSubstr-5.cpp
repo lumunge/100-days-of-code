@@ -20,15 +20,15 @@ class Solution{
                 dp[i][i] = true;
             
             // left and right pointers
-            int r = 0, l = 1; // single char string is palindrome
+            int l = 0, r = 1; // single char string is palindrome
             
             // check any two adjacent characters form palindrome
             for(int i = 0; i < n-1; i++){
                 // if first two characters are equal
                 if(str[i] == str[i+1]){
                     dp[i][i+1] = true;
-                    r = i;
-                    l = 2;
+                    l = i;
+                    r = 2;
                 }
             }
             // start from third character
@@ -41,13 +41,13 @@ class Solution{
                         // if current substr > original
                         if(i > l){
                             // move pointers
-                            r = j;
-                            l = i;
+                            l = j;
+                            r = i;
                         }
                     }
                 }
             }
-            return str.substr(r, l);
+            return str.substr(l, r);
         }
 };
 
