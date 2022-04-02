@@ -19,11 +19,18 @@ class MatrixBlockSum{
 
             for(int i = 0; i < r; i++){
                 for(int j = 0; j < c; j++){
-                    int r1 = max(0, i - k);
-                    int c1 = max(0, j - k);
+                    int r1 = i - k - 1;
+                    int c1 = j - k - 1;
+
                     int r2 = min(r-1, i + k);
                     int c2 = min(c-1, j + k);
-                    block[i][j] = nm.sumRegion(dp, r1, c1, r2, c2);
+                    int d = dp[r2][c2];
+
+                    int a = (r1 >= 0 && c1 >= 0) ? dp[r1][c1] : 0;
+                    int b = (r1 >= 0) ? dp[r1][c2] : 0;
+                    int c = (c1 >= 0) ? dp[r2][c1] : 0;
+
+                    block[i][j] = (a - b - c) + d;
                 }
             }
 
