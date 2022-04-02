@@ -7,9 +7,9 @@ using std::vector;
 using std::cout;
 using std::endl;
 
-class Solution {
+class NumMatrix{
     public:
-        vector<vector<int>> NumMatrix(vector<vector<int>>& matrix){
+        vector<vector<int>> buildMatrix(vector<vector<int>>& matrix){
             vector<vector<int>> dp(201, vector<int>(201));
             int r = matrix.size(), c = matrix[0].size();
             // set first value
@@ -33,13 +33,13 @@ class Solution {
         }
         // query
         int sumRegion(vector<vector<int>> dp, int r1, int c1, int r2, int c2) {
-            if(r1 == 0 && c1 != 0){
+            if(r1 == 0 && c1 != 0){ // starting row equal to zero
                 return dp[r2][c2] - dp[r2][c1-1];
-            }else if(r1 != 0 && c1 == 0){
+            }else if(r1 != 0 && c1 == 0){ // starting column equal to zero
                 return dp[r2][c2] - dp[r1-1][c2];
-            }else if(r1 == 0 && c1 == 0){
+            }else if(r1 == 0 && c1 == 0){ // starting row and starting column are zero
                 return dp[r2][c2];
-            }else{
+            }else{ // both not equal to zero
                 return dp[r2][c2] - dp[r2][c1 - 1] - dp[r1 - 1][c2] + dp[r1-1][c1-1];
             }
         }
@@ -54,9 +54,9 @@ class Solution {
             }
         }
 };
-
+/*
 int main(){
-    Solution soln;
+    NumMatrix nm;
     ///////////////////////////////////////////////////
     vector<vector<int>> m = {{3,0,1,4,2},
                               {5,6,3,2,1},
@@ -73,28 +73,28 @@ int main(){
                               {-8,-5,6}};
     vector<vector<int>> m3 = {{-4,-5}};
     ///////////////////////////////////////////////////
-    vector<vector<int>> dp = soln.NumMatrix(m);
-    vector<vector<int>> dp1 = soln.NumMatrix(m1);
-    vector<vector<int>> dp2 = soln.NumMatrix(m2);
-    vector<vector<int>> dp3 = soln.NumMatrix(m3);
+    vector<vector<int>> dp = nm.buildMatrix(m);
+    vector<vector<int>> dp1 = nm.buildMatrix(m1);
+    vector<vector<int>> dp2 = nm.buildMatrix(m2);
+    vector<vector<int>> dp3 = nm.buildMatrix(m3);
 
-    cout << soln.sumRegion(dp, 2, 1, 4, 3) << endl;
-    cout << soln.sumRegion(dp, 1, 1, 2, 2) << endl;
-    cout << soln.sumRegion(dp, 1, 2, 2, 4) << endl;
+    cout << nm.sumRegion(dp, 2, 1, 4, 3) << endl;
+    cout << nm.sumRegion(dp, 1, 1, 2, 2) << endl;
+    cout << nm.sumRegion(dp, 1, 2, 2, 4) << endl;
 
-    cout << soln.sumRegion(dp1, 0, 1, 0, 2) << endl;
-    cout << soln.sumRegion(dp1, 1, 1, 1, 2) << endl;
-    cout << soln.sumRegion(dp1, 0, 1, 0, 2) << endl;
+    cout << nm.sumRegion(dp1, 0, 1, 0, 2) << endl;
+    cout << nm.sumRegion(dp1, 1, 1, 1, 2) << endl;
+    cout << nm.sumRegion(dp1, 0, 1, 0, 2) << endl;
 
-    cout << soln.sumRegion(dp2, 0, 0, 0, 0) << endl;
-    cout << soln.sumRegion(dp2, 0, 0, 0, 1) << endl;
-    cout << soln.sumRegion(dp2, 0, 1, 0, 1) << endl;
+    cout << nm.sumRegion(dp2, 0, 0, 0, 0) << endl;
+    cout << nm.sumRegion(dp2, 0, 0, 0, 1) << endl;
+    cout << nm.sumRegion(dp2, 0, 1, 0, 1) << endl;
 
-    cout << soln.sumRegion(dp3, 1, 0, 2, 2) << endl;
-    cout << soln.sumRegion(dp3, 2, 1, 2, 2) << endl;
-    cout << soln.sumRegion(dp3, 0, 2, 2, 2) << endl;
-    cout << soln.sumRegion(dp3, 3, 2, 3, 2) << endl;
+    cout << nm.sumRegion(dp3, 1, 0, 2, 2) << endl;
+    cout << nm.sumRegion(dp3, 2, 1, 2, 2) << endl;
+    cout << nm.sumRegion(dp3, 0, 2, 2, 2) << endl;
+    cout << nm.sumRegion(dp3, 3, 2, 3, 2) << endl;
     
     return 0;
-}
+}*/
     
