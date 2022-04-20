@@ -23,5 +23,24 @@ class Solution {
                 newRt->left = nullptr;
                 newRt = newRt->right;
            }
-        }   
+        }
+
+        // Constant space
+        void flatten(TreeNode* root){
+            if(root == nullptr) return;
+            
+            TreeNode *left = root->left;
+            TreeNode *right = root->right;
+            root->left = nullptr;
+            
+            flatten(left); flatten(right);
+            
+            root->right = left;
+            
+            TreeNode* newTree = root;
+            while(newTree->right != nullptr)
+                newTree = newTree->right;
+            
+            newTree->right = right;
+        }
 };
