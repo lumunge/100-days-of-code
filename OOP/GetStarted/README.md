@@ -51,3 +51,18 @@ class LocationTester{
 ```
 
 Output ---> [-16.3, -45.89]
+
+## Scoping.
+*Local variables* - declared inside methods.
+*Parameters* - can be used inside methods.
+*Member variables*  - belong to a class. Declared outside any methods in the class
+                    - Scope is entire class.
+
+```java
+public class LocationTester{
+    public static void main(String[] args){
+        double lat = -34.17;
+        SimpleLocation loc1 = new SimpleLocation(lat, -45.44);
+    }
+}
+```
